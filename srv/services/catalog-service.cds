@@ -1,4 +1,4 @@
-using {neonid0.captraining as db} from '../db/schema';
+using {neonid0.captraining as db} from '../../db/schema';
 
 
 service CatalogService @(odata: '/browse') {
@@ -14,4 +14,9 @@ service CatalogService @(odata: '/browse') {
             modifiedBy
         };
 
+}
+
+extend service CatalogService with {
+    @requires: 'authenticated-user'
+    action submitOrder(book: Books:ID, quantity: Integer);
 }
