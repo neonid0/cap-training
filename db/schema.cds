@@ -14,17 +14,26 @@ entity Vehicles : cuid, managed {
     make          : String;
     model         : String;
     year          : Integer;
-    status        : localized String; // this for an example of localization
+    status        : localized String; // this is for an example of localization
     vin           : String;
     lastServiceAt : DateTime;
 }
 
 entity Tenants : cuid, managed {
 
-    vehicle     : Association to many Vehicles
-                      on vehicle.tenant = $self;
-    userAccount : Association to many UserAccounts
-                      on userAccount.tenant = $self;
+    // These are just backlinks when we use them for one-to-many associations for navigations
+    //    vehicle           : Association to many Vehicles
+    //                            on vehicle.tenant = $self;
+    //    userAccount       : Association to many UserAccounts
+    //                            on userAccount.tenant = $self;
+    //    driver            : Association to many Drivers
+    //                            on driver.tenant = $self;
+    //    maintanenceRecord : Association to many MaintanenceRecords
+    //                            on maintanenceRecord.tenant = $self;
+    //    assignment        : Association to many Assignments
+    //                            on assignment.tenant = $self;
+    //    alert             : Association to many Alerts
+    //                            on alert.tenant = $self;
 
     subdomain   : String;
     displayName : String;
@@ -68,7 +77,7 @@ entity Assignments : cuid, managed {
     vehicle   : Association to Vehicles;
     driver    : Association to Drivers;
 
-    startTime : DateTime @cds.valid.from;
+    startTime : DateTime @cds.validfrom;
     endTime   : DateTime @cds.validto;
     status    : String;
     notes     : String;

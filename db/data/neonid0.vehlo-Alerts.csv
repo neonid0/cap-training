@@ -1,0 +1,1 @@
+ID,tenant_ID,vehicle_ID,maintanenceRecord_ID,alertType,severity,status,message,trigerredAt,acknowledgedAt,acknowledgedBy

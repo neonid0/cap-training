@@ -1,0 +1,6 @@
+ID,subdomain,displayName,planTier,status,createdAt,createdBy,modifiedAt,modifiedBy
+c3f4fd2b-c601-4e6b-94ee-e4e094b49cb0,alpha,Alpha Transport,Basic,active,2026-06-12T01:35:36Z,seed,2026-06-12T01:35:36Z,seed
+30e64beb-a5d2-450d-9208-95448b12380b,beta,Beta Logistics,Pro,trial,2026-06-12T01:35:36Z,seed,2026-06-12T01:35:36Z,seed
+0580ac72-c70f-4c31-ab50-f14ee028e20b,gamma,Gamma Fleet,Enterprise,active,2026-06-12T01:35:36Z,seed,2026-06-12T01:35:36Z,seed
+542d9f48-63ec-4649-a871-7fd89a4111a7,delta,Delta Rentals,Basic,inactive,2026-06-12T01:35:36Z,seed,2026-06-12T01:35:36Z,seed
+0eb0cab8-b4f7-48b5-a619-eba8fcc41387,epsilon,Epsilon Mobility,Pro,active,2026-06-12T01:35:36Z,seed,2026-06-12T01:35:36Z,seed

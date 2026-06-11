@@ -1,7 +1,26 @@
-using {neonid0.captraining as db} from '../db/schema';
+using {neonid0.vehlo as db} from '../db/schema';
 
 service AdminService @(odata: '/admin') {
-    entity Authors as projection on db.Authors;
-    entity Books   as projection on db.Books;
-    entity Genres  as projection on db.Genres;
+    entity Vehicles     as
+        projection on db.Vehicles {
+            *,
+            tenant.displayName as tenant
+        };
+
+    entity Tenants      as
+        projection on db.Tenants {
+            *
+        };
+
+    entity UserAccounts as
+        projection on db.UserAccounts {
+            *,
+            tenant.displayName as tenant
+        };
+
+    entity Drivers      as
+        projection on db.Drivers {
+            *,
+            tenant.displayName as tenant
+        };
 }
