@@ -1,4 +1,4 @@
-using {AdminService} from './../services/admin-service.cds';
+using {AdminService} from './../admin-service.cds';
 
 annotate AdminService.Books with {
     title  @mandatory;

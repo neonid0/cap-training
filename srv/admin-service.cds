@@ -1,4 +1,4 @@
-using {neonid0.captraining as db} from '../../db/schema';
+using {neonid0.captraining as db} from '../db/schema';
 
 service AdminService @(odata: '/admin') {
     entity Authors as projection on db.Authors;
