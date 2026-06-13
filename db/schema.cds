@@ -10,7 +10,7 @@ entity Vehicles : cuid, managed {
 
     tenant        : Association to Tenants;
 
-    plateNumber   : Integer;
+    plateNumber   : String;
     make          : String;
     model         : String;
     year          : Integer;
@@ -81,6 +81,11 @@ entity Assignments : cuid, managed {
     endTime   : DateTime @cds.validto;
     status    : String;
     notes     : String;
+}
+
+// This for OCC
+annotate Assignments with {
+    modifiedAt @odata.etag
 }
 
 entity MaintanenceRecords : cuid, managed {
