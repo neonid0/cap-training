@@ -4,20 +4,11 @@ export class VehicleService extends cds.ApplicationService {
 
     init() {
 
-        this.on('assignDriver', async req => {
+        this.after('READ', 'Vehicles', results => results.forEach(vehicle => {
 
-            let { vehicle: vehicleId, driver: driverId } = req.data;
+            if (vehicle.make === 'BMW') vehicle.plateNumber = 'DE ' + vehicle.plateNumber;
+        }))
 
-            let existingAssignment = await SELECT.one.from(Vehicles)
-                .where`driver.ID = ${driverId}`
-
-            if (existingAssignment) {
-                if (existingAssignment.ID === vehicleId) {
-                    req.error`Driver is already signet to this vehicle.`
-                }
-
-                req.error`Driver is already signed to another vehicle`
-            }
-        })
+        return super.init();
     }
 }
