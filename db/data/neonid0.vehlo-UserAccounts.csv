@@ -1,1 +1,11 @@
 ID,tenant_ID,firstName,lastName,email,role,isActive,createdAt,createdBy,modifiedAt,modifiedBy
+aaaaaaaa-0001-4000-8000-000000000001,c3f4fd2b-c601-4e6b-94ee-e4e094b49cb0,John,Doe,john.doe@example.com,driver,true,2026-06-13T09:00:00Z,seed,2026-06-13T09:00:00Z,seed
+aaaaaaaa-0002-4000-8000-000000000002,30e64beb-a5d2-450d-9208-95448b12380b,Jane,Smith,jane.smith@example.com,driver,true,2026-06-13T09:05:00Z,seed,2026-06-13T09:05:00Z,seed
+aaaaaaaa-0003-4000-8000-000000000003,0580ac72-c70f-4c31-ab50-f14ee028e20b,Bob,Lee,bob.lee@example.com,driver,true,2026-06-13T09:10:00Z,seed,2026-06-13T09:10:00Z,seed
+aaaaaaaa-0004-4000-8000-000000000004,542d9f48-63ec-4649-a871-7fd89a4111a7,Alice,Wong,alice.wong@example.com,driver,true,2026-06-13T09:15:00Z,seed,2026-06-13T09:15:00Z,seed
+aaaaaaaa-0005-4000-8000-000000000005,0eb0cab8-b4f7-48b5-a619-eba8fcc41387,Tom,Brown,tom.brown@example.com,driver,true,2026-06-13T09:20:00Z,seed,2026-06-13T09:20:00Z,seed
+aaaaaaaa-0006-4000-8000-000000000006,a1111111-aaaa-4aaa-aaaa-aaaaaaaaaaa1,Sam,Green,sam.green@example.com,driver,true,2026-06-13T09:25:00Z,seed,2026-06-13T09:25:00Z,seed
+aaaaaaaa-0007-4000-8000-000000000007,b2222222-bbbb-4bbb-bbbb-bbbbbbbbbbb2,Linda,Hall,linda.hall@example.com,driver,true,2026-06-13T09:30:00Z,seed,2026-06-13T09:30:00Z,seed
+aaaaaaaa-0008-4000-8000-000000000008,c3333333-cccc-4ccc-cccc-ccccccccccc3,Mark,Young,mark.young@example.com,driver,true,2026-06-13T09:35:00Z,seed,2026-06-13T09:35:00Z,seed
+aaaaaaaa-0009-4000-8000-000000000009,d4444444-dddd-4ddd-dddd-dddddddddddd4,Nora,King,nora.king@example.com,driver,true,2026-06-13T09:40:00Z,seed,2026-06-13T09:40:00Z,seed
+aaaaaaaa-0010-4000-8000-00000000000A,c3f4fd2b-c601-4e6b-94ee-e4e094b49cb0,Eric,Young,eric.young@example.com,driver,true,2026-06-13T09:45:00Z,seed,2026-06-13T09:45:00Z,seed
