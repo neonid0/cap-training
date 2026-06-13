@@ -10,5 +10,13 @@
     "scripts": {
         "start": "cds-serve"
     },
-    "private": true
+    "private": true,
+    "cds": {
+        "query": {
+            "limit": {
+                "default": 20,
+                "max": 100
+            }
+        }
+    }
 }
