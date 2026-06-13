@@ -1,21 +1,27 @@
 using {neonid0.vehlo as db} from '../db/schema.cds';
 
+@cds.query.limit: {
+    default: 20,
+    max    : 100
+}
 service VehicleService @(odata: '/vehicle') {
 
+    @cds.query.limit: 4
     @readonly
-    entity Vehicle as
+    entity Vehicles as
         projection on db.Vehicles {
+
             *,
             tenant.displayName as tenant,
         }
         excluding {
-            createdAt,
-            createdBy,
-            modifiedAt,
-            modifiedBy,
-        };
+            managed
+        }
+        order by
+            plateNumber desc;
 }
 
+// it is a good way to separate concerns
 extend service VehicleService with {
 
     @requires: 'authenticated-user'

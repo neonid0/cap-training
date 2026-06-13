@@ -1,6 +1,10 @@
 using {neonid0.vehlo as db} from '../db/schema';
 
-service AdminService @(odata: '/admin') {
+service AdminService @(
+    odata   : '/admin',
+    requires: 'admin'
+) {
+
     entity Vehicles     as
         projection on db.Vehicles {
             *,
