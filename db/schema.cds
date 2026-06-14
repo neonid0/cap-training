@@ -53,9 +53,11 @@ entity Vehicles : cuid, managed {
     schedule    : Association to many DriverSchedules
                       on schedule.vehicle = $self;
 
+    make        : String(32);
+    model       : String(64);
     plateNumber : String;
     class       : VehicleClass;
-    status      : VehicleStatus;
+    status      : VehicleStatus default 'A';
     location    : Binary;
 }
 
@@ -76,10 +78,12 @@ entity Drivers : cuid, managed {
     schedule              : Association to many DriverSchedules
                                 on schedule.driver = $self;
 
-    name                  : String;
+    firstName             : String(64);
+    lastName              : String(64);
+    name                  : String = firstName || ' ' || lastName;
     allowedVehicleClasses : array of VehicleClass;
     location              : Binary;
-    status                : DriverStatus;
+    status                : DriverStatus default 'A';
 }
 
 entity DriverSchedules : cuid, managed {
@@ -103,10 +107,10 @@ entity Trips : cuid, managed, temporal {
     start                : DateTime @cds.valid.from;
     end                  : DateTime @cds.valid.to;
     payout               : Price;
-    currency             : Currency;
+    currency             : Currency default 'EUR';
     originLocation       : Binary;
     destionationLocation : Binary;
-    status               : TripStatus;
+    status               : TripStatus default 'D';
 }
 
 entity Maintenances : cuid, managed {
@@ -116,7 +120,7 @@ entity Maintenances : cuid, managed {
     start       : DateTime @cds.valid.from;
     end         : DateTime @cds.valid.to;
     description : String(1000);
-    status      : MaintenanceStatus;
+    status      : MaintenanceStatus default 'S';
 }
 
 
