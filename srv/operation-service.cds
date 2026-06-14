@@ -29,11 +29,13 @@ service OperationService @(
     entity Maintenances as projection on db.Maintenances;
 }
 
-extend service OperationService with @(requires: 'processor') {
+extend service OperationService with {
 
+    @(requires: 'processor')
     action publishTrip(trip: db.Trips:ID,
                        driver: db.Drivers:ID);
 
+    @(requires: 'processor')
     action sendToMaintenance(vehicle: db.Vehicles:ID not null, );
 }
 
