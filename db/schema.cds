@@ -50,15 +50,16 @@ type MaintenanceStatus : String enum {
 
 entity Vehicles : cuid, managed {
 
-    schedule    : Association to many DriverSchedules
-                      on schedule.vehicle = $self;
+    key plateNumber : String;
+        schedule    : Association to many DriverSchedules
+                          on schedule.vehicle = $self;
 
-    make        : String(32);
-    model       : String(64);
-    plateNumber : String;
-    class       : VehicleClass;
-    status      : VehicleStatus default 'A';
-    location    : Binary;
+        make        : String(32);
+        model       : String(64);
+        class       : VehicleClass;
+        year        : Integer;
+        status      : VehicleStatus default 'A';
+        location    : Binary;
 }
 
 entity VehicleSchedules : cuid, managed {

@@ -23,8 +23,8 @@ export class DriverService extends cds.ApplicationService {
         this.on('applyTrip', async req => {
 
             let { trip: tripId } = req.data;
-
             const trip = await SELECT.one.from(Trips).where({ ID: tripId });
+
             if (!trip) return req.reject(404, 'Trip not found');
 
             const tripDriverId = trip.driver_ID || trip.driver?.ID;
@@ -38,8 +38,8 @@ export class DriverService extends cds.ApplicationService {
         this.on('revokeTrip', async req => {
 
             let { trip: tripId } = req.data;
-
             const trip = await SELECT.one.from(Trips).where({ ID: tripId });
+
             if (!trip) return req.reject(404, 'Trip not found');
 
             const tripDriverId = trip.driver_ID || trip.driver?.ID;

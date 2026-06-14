@@ -1,6 +1,7 @@
 {
     "name": "logiflow",
     "version": "1.0.0",
+    "type": "module",
     "dependencies": {
         "@cap-js/audit-logging": "^1.2.1",
         "@sap/cds": "^9"

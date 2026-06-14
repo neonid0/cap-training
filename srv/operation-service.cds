@@ -1,10 +1,10 @@
-using {neonid0.logiflow as db} from '../db/schema.cds';
+using {neonid0.logiflow as db} from '../db/schema';
 
 
 type ReviewDecision : String enum {
-    ACCEPTED = 'A';
+    APPROVED = 'A';
     REJECTED = 'R';
-    BLOCK = 'B';
+    BLOCKED = 'B';
 }
 
 service OperationService @(
@@ -32,11 +32,11 @@ service OperationService @(
 extend service OperationService with {
 
     @(requires: 'processor')
-    action publishTrip(trip: db.Trips:ID,
+    action publishTrip(trip: db.Trips:ID not null,
                        driver: db.Drivers:ID);
 
     @(requires: 'processor')
-    action sendToMaintenance(vehicle: db.Vehicles:ID not null, );
+    action sendToMaintenance(vehicle: db.Vehicles:ID not null, start: DateTime, end: DateTime, notes: String(1000));
 }
 
 extend service OperationService with {

@@ -1,4 +1,4 @@
-using {neonid0.logiflow as db} from '../db/schema.cds';
+using {neonid0.logiflow as db} from '../db/schema';
 
 
 service FleetService @(
@@ -17,7 +17,7 @@ service FleetService @(
         ],
         to   : 'admin'
     }]
-    entity Vehicle as projection on db.Vehicles;
+    entity Vehicles as projection on db.Vehicles;
 }
 
 
