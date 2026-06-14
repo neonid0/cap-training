@@ -20,7 +20,7 @@ export class DriverService extends cds.ApplicationService {
             }
         }));
 
-        this.on('applyTrip', async req => {
+        this.on('applyForTrip', async req => {
 
             let { trip: tripId } = req.data;
             const trip = await SELECT.one.from(Trips).where({ ID: tripId });

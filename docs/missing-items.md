@@ -16,30 +16,26 @@ Many critical Actions, Events, Access Controls, and Constraints are missing or i
 | `sendToMaintenance` | ✅ Exists | Wrong name, should be internal |
 
 ### ❌ MISSING Actions
-| Action | Required Roles | Parameters | Status |
-|--------|---|---|---|
-| `createTripDraft` | Processor | tripId, dates, locations, vehicleId | **MISSING** |
-| `assignDriver` | Processor | tripId, driverId | **MISSING** |
-| `cancelTrip` | Processor | tripId, reason | **MISSING** |
-| `updateTrip` | Processor | tripId, updates | **MISSING** |
+- [ ] `createTripDraft` (Processor) - tripId, dates, locations, vehicleId
+- [ ] `assignDriver` (Processor) - tripId, driverId
+- [ ] `cancelTrip` (Processor) - tripId, reason
+- [ ] `updateTrip` (Processor) - tripId, updates
 
 ### ❌ MISSING Events
-| Event | Triggers | Listeners | Status |
-|-------|----------|-----------|--------|
-| `TripDraftCreated` | createTripDraft | Fleet Service (vehicle availability check) | **MISSING** |
-| `TripPublished` | publishTrip | Driver Portal (show available trips) | **MISSING** |
-| `DriverAssigned` | assignDriver | Notification Service (push to driver) | **MISSING** |
-| `TripStatusChanged` | Any status change | ElasticSearch (logging), WebSocket (UI updates) | **MISSING** |
-| `TripCancelled` | cancelTrip | Notification Service (SMS if driver assigned) | **MISSING** |
-| `TripReviewed` | reviewTrip | Audit logging | **MISSING** |
+- [ ] `TripDraftCreated` - triggers on createTripDraft, listeners: Fleet Service (vehicle availability check)
+- [ ] `TripPublished` - triggers on publishTrip, listeners: Driver Portal (show available trips)
+- [ ] `DriverAssigned` - triggers on assignDriver, listeners: Notification Service (push to driver)
+- [ ] `TripStatusChanged` - triggers on any status change, listeners: ElasticSearch (logging), WebSocket (UI updates)
+- [ ] `TripCancelled` - triggers on cancelTrip, listeners: Notification Service (SMS if driver assigned)
+- [ ] `TripReviewed` - triggers on reviewTrip, listeners: Audit logging
 
 ### ❌ MISSING Constraints in OperationService
-- No validation that Processor role has permission to createTripDraft
-- No check if vehicle is available during requested dates
-- No REVIEW_LOG table for audit trail
-- Missing `reason` parameter requirement for REJECT/BLOCK decisions
-- No check if trip is IN_REVIEW before reviewTrip
-- Missing @requires decorator precision for different actions
+- [ ] No validation that Processor role has permission to createTripDraft
+- [ ] No check if vehicle is available during requested dates
+- [ ] No REVIEW_LOG table for audit trail
+- [ ] Missing `reason` parameter requirement for REJECT/BLOCK decisions
+- [ ] No check if trip is IN_REVIEW before reviewTrip
+- [ ] Missing @requires decorator precision for different actions
 
 ### ❌ Access Control Issues
 ```cds
@@ -65,32 +61,28 @@ action reviewTrip(...);
 ### ✅ Implemented Actions
 | Action | Status | Notes |
 |--------|--------|-------|
-| `applyTrip` | ⚠️ Partial | Called `applyTrip`, spec says `applyForTrip` |
+| `applyForTrip` | ✅ Corrected | Renamed from `applyTrip` to match spec |
 | `revokeTrip` | ✅ Exists | Missing implementation details |
 
 ### ❌ MISSING Actions
-| Action | Required Roles | Parameters | Status |
-|--------|---|---|---|
-| `startTrip` | Driver | tripId | **MISSING** |
-| `completeTrip` | Driver | tripId | **MISSING** |
-| `updateLocation` | Driver | lat, long | **MISSING** |
-| `changeDutyStatus` | Driver | status (ON_DUTY/OFF_DUTY) | **MISSING** |
+- [ ] `startTrip` (Driver) - tripId
+- [ ] `completeTrip` (Driver) - tripId
+- [ ] `updateLocation` (Driver) - lat, long
+- [ ] `changeDutyStatus` (Driver) - status (ON_DUTY/OFF_DUTY)
 
 ### ❌ MISSING Events
-| Event | Triggers | Listeners | Status |
-|-------|----------|-----------|--------|
-| `DriverAppliedForTrip` | applyForTrip | Operations Service (move trip to REVIEW) | **MISSING** |
-| `TripStarted` | startTrip | Fleet Service (update vehicle to ON_TRIP) | **MISSING** |
-| `TripCompleted` | completeTrip | Fleet Service (vehicle to AVAILABLE) + Invoicing Service | **MISSING** |
-| `DriverStatusChanged` | changeDutyStatus | Operations Service (filter available drivers) | **MISSING** |
+- [ ] `DriverAppliedForTrip` - triggers on applyForTrip, listeners: Operations Service (move trip to REVIEW)
+- [ ] `TripStarted` - triggers on startTrip, listeners: Fleet Service (update vehicle to ON_TRIP)
+- [ ] `TripCompleted` - triggers on completeTrip, listeners: Fleet Service (vehicle to AVAILABLE) + Invoicing Service
+- [ ] `DriverStatusChanged` - triggers on changeDutyStatus, listeners: Operations Service (filter available drivers)
 
 ### ❌ MISSING Constraints in DriverService
-- No validation that trip is in PUBLISHED status before applyForTrip
-- No distance validation (< 50km from current location)
-- No check that driver is ON_DUTY before starting/completing trip
-- Missing location tracking table (PostGIS)
-- No driver license class validation against vehicle requirements
-- applyTrip has logic bug: checking if driver already applied returns 403, should update status or return 409
+- [ ] No validation that trip is in PUBLISHED status before applyForTrip
+- [ ] No distance validation (< 50km from current location)
+- [ ] No check that driver is ON_DUTY before starting/completing trip
+- [ ] Missing location tracking table (PostGIS)
+- [ ] No driver license class validation against vehicle requirements
+- [ ] applyForTrip logic fix: checking if driver already applied returns 403, should update status or return 409
 
 ### ❌ Access Control Issues
 ```cds
@@ -113,29 +105,25 @@ action applyTrip(trip: db.Trips:ID);
 - Vehicles with READ/WRITE access control structure
 
 ### ❌ MISSING Actions
-| Action | Required Roles | Parameters | Status |
-|--------|---|---|---|
-| `addVehicle` | Admin | plate, class, make, model, year | **PARTIALLY** (no action, direct INSERT) |
-| `scheduleMaintenance` | Admin | vehicleId, date | **MISSING** |
-| `startMaintenance` | Admin | maintenanceId | **MISSING** |
-| `completeMaintenance` | Admin | maintenanceId | **MISSING** |
-| `acknowledgeAlert` | Admin | maintenanceId | **MISSING** |
+- [ ] `addVehicle` (Admin) - plate, class, make, model, year (PARTIALLY: no action, direct INSERT)
+- [ ] `scheduleMaintenance` (Admin) - vehicleId, date
+- [ ] `startMaintenance` (Admin) - maintenanceId
+- [ ] `completeMaintenance` (Admin) - maintenanceId
+- [ ] `acknowledgeAlert` (Admin) - maintenanceId
 
 ### ❌ MISSING Events
-| Event | Triggers | Listeners | Status |
-|-------|----------|-----------|--------|
-| `VehicleAdded` | addVehicle | Inventory Service | **MISSING** |
-| `MaintenanceScheduled` | scheduleMaintenance | Notification Service | **MISSING** |
-| `MaintenanceStarted` | startMaintenance | Operations Service (block trip creation) | **MISSING** |
-| `MaintenanceCompleted` | completeMaintenance | Operations Service (open vehicle for trips) | **MISSING** |
-| `VehicleStatusChanged` | Any vehicle status change | Operations Service, Monitoring | **MISSING** |
-| `MaintenanceAlertTriggered` | Cron job (X hours before maintenance) | Email Service, UI Notification Hub | **MISSING** |
+- [ ] `VehicleAdded` - triggers on addVehicle, listeners: Inventory Service
+- [ ] `MaintenanceScheduled` - triggers on scheduleMaintenance, listeners: Notification Service
+- [ ] `MaintenanceStarted` - triggers on startMaintenance, listeners: Operations Service (block trip creation)
+- [ ] `MaintenanceCompleted` - triggers on completeMaintenance, listeners: Operations Service (open vehicle for trips)
+- [ ] `VehicleStatusChanged` - triggers on any vehicle status change, listeners: Operations Service, Monitoring
+- [ ] `MaintenanceAlertTriggered` - triggers on cron job (X hours before maintenance), listeners: Email Service, UI Notification Hub
 
 ### ❌ MISSING Constraints in FleetService
-- No validation that past dates cannot be used for maintenance scheduling
-- No check that vehicle isn't already in MAINTENANCE before starting new maintenance
-- No validation that plate number is unique within tenant
-- Missing vehicle status validation (can't have TRIP if vehicle doesn't exist in db)
+- [ ] No validation that past dates cannot be used for maintenance scheduling
+- [ ] No check that vehicle isn't already in MAINTENANCE before starting new maintenance
+- [ ] No validation that plate number is unique within tenant
+- [ ] Missing vehicle status validation (can't have TRIP if vehicle doesn't exist in db)
 
 ### ❌ Access Control Issues
 ```cds
@@ -159,67 +147,42 @@ action applyTrip(trip: db.Trips:ID);
 The entire Tenant Provisioning Service is missing from the codebase.
 
 ### ❌ MISSING Actions
-| Action | Required Roles | Parameters | Status |
-|--------|---|---|---|
-| `registerTenant` | System | companyName, planId | **MISSING** |
-| `suspendTenant` | SuperAdmin | tenantId | **MISSING** |
+- [ ] `registerTenant` (System) - companyName, planId
+- [ ] `suspendTenant` (SuperAdmin) - tenantId
 
 ### ❌ MISSING Events
-| Event | Triggers | Listeners | Status |
-|-------|----------|-----------|--------|
-| `TenantRegistrationRequested` | registerTenant | CAP MTXS Service (provision HDI container, schema creation) | **MISSING** |
-| `TenantProvisioned` | HDI provisioning complete | License Service, Operations Service | **MISSING** |
-| `TenantSuspended` | suspendTenant | Gateway (403 Forbidden for all requests), Session Manager (close active sessions) | **MISSING** |
+- [ ] `TenantRegistrationRequested` - triggers on registerTenant, listeners: CAP MTXS Service (provision HDI container, schema creation)
+- [ ] `TenantProvisioned` - triggers on HDI provisioning complete, listeners: License Service, Operations Service
+- [ ] `TenantSuspended` - triggers on suspendTenant, listeners: Gateway (403 Forbidden for all requests), Session Manager (close active sessions)
 
 ### ❌ MISSING Tenant Schema
-```cds
-// No Tenant entity exists in db/schema.cds
-entity Tenants : cuid, managed {
-    displayName: String;
-    planId: String;
-    status: TenantStatus enum {ACTIVE, SUSPENDED, DELETED};
-    subscriptionStart: Date;
-    subscriptionEnd: Date;
-}
-```
+- [ ] Create `Tenants` entity in db/schema.cds with fields: displayName, planId, status enum (ACTIVE, SUSPENDED, DELETED), subscriptionStart, subscriptionEnd
 
 ---
 
 ## 5. CROSS-CUTTING CONCERNS
 
 ### ❌ MISSING: Event Bus / Pub-Sub Infrastructure
-- No event definitions in CDS files
-- No Fiori notification setup
-- No webhook mechanism
-- No event listeners registered
+- [ ] Define event types in CDS files
+- [ ] Set up Fiori notification infrastructure
+- [ ] Implement webhook mechanism
+- [ ] Register event listeners
 
 ### ❌ MISSING: Audit & Logging
-- No REVIEW_LOG table for trip reviews
-- No audit trail for state transitions
-- No change tracking for sensitive operations
+- [ ] Create REVIEW_LOG table for trip reviews
+- [ ] Implement audit trail for state transitions
+- [ ] Implement change tracking for sensitive operations
 
 ### ❌ MISSING: Data Validation (Constraints)
-```cds
-// Missing in all services:
-@assert.format: /^[A-Z]{2}\d{3}[A-Z]{2}$/ // Plate format validation
-@assert.unique: [{elements: ['plateNumber', 'tenant_ID']}] // Uniqueness per tenant
-@assert.range: [0, 500] // Distance in km
-@assert.notNull: true // For required fields
-```
+- [ ] Add @assert.format for plate number validation
+- [ ] Add @assert.unique constraints for business keys (plateNumber + tenant_ID)
+- [ ] Add @assert.range for distance validation (0-500 km)
+- [ ] Add @assert.notNull for required fields
 
 ### ❌ MISSING: Tenant Isolation
-Current services DO NOT implement:
-- WHERE filters based on tenant context
-- Tenant_ID foreign keys
-- @restrict annotations checking tenant membership
-
-Example missing:
-```cds
-@restrict: [{
-    grant: ['READ'],
-    where: 'tenant_ID = $user.tenant_ID'
-}]
-```
+- [ ] Add WHERE filters based on tenant context in all entities
+- [ ] Add tenant_ID foreign keys to all entities
+- [ ] Add @restrict annotations checking tenant membership
 
 ### ❌ MISSING: Role-Based Access Control (RBAC) Refinement
 | Component | Current | Required |
@@ -234,50 +197,37 @@ Example missing:
 ## 6. DATABASE SCHEMA GAPS
 
 ### Missing Tables
-- `TenantMetadata` - For SaaS management
-- `ReviewLogs` - For audit trail on trip reviews
-- `MaintenanceAlerts` - For scheduled alerts
-- `DriverLicenseClasses` - Mapping licenses to vehicle classes
-- `EventAudit` - Event sourcing audit trail
+- [ ] `TenantMetadata` - For SaaS management
+- [ ] `ReviewLogs` - For audit trail on trip reviews
+- [ ] `MaintenanceAlerts` - For scheduled alerts
+- [ ] `DriverLicenseClasses` - Mapping licenses to vehicle classes
+- [ ] `EventAudit` - Event sourcing audit trail
 
 ### Missing Columns
-```sql
--- Missing in Trips table:
-ALTER TABLE Trips ADD COLUMN reviewedBy UUID;
-ALTER TABLE Trips ADD COLUMN reviewedAt DateTime;
-ALTER TABLE Trips ADD COLUMN reviewReason String(1000);
-
--- Missing in Drivers table:
-ALTER TABLE Drivers ADD COLUMN tenant_ID UUID; -- For multi-tenant
-ALTER TABLE Drivers ADD COLUMN licenseClasses array of String;
-ALTER TABLE Drivers ADD COLUMN currentLocation Point; -- PostGIS
-
--- Missing in Vehicles table:
-ALTER TABLE Vehicles ADD COLUMN tenant_ID UUID; -- For multi-tenant
-ALTER TABLE Vehicles ADD COLUMN registrationExpiry Date;
-ALTER TABLE Vehicles ADD COLUMN insuranceExpiry Date;
-```
+- [ ] Trips table: add reviewedBy (UUID), reviewedAt (DateTime), reviewReason (String 1000)
+- [ ] Drivers table: add tenant_ID (UUID), licenseClasses (array), currentLocation (Point/PostGIS)
+- [ ] Vehicles table: add tenant_ID (UUID), registrationExpiry (Date), insuranceExpiry (Date)
 
 ---
 
 ## 7. MISSING BUSINESS LOGIC
 
 ### Operations Service
-- ❌ Vehicle availability conflict detection (dates overlap)
-- ❌ Driver license class validation
-- ❌ Automatic state machine enforcement
-- ❌ REVIEW_LOG audit trail creation
+- [ ] Vehicle availability conflict detection (dates overlap)
+- [ ] Driver license class validation
+- [ ] Automatic state machine enforcement
+- [ ] REVIEW_LOG audit trail creation
 
 ### Driver Service
-- ❌ Distance validation (< 50km)
-- ❌ Location update handling (PostGIS)
-- ❌ Duty status enforcement
-- ❌ Trip start/complete workflow
+- [ ] Distance validation (< 50km)
+- [ ] Location update handling (PostGIS)
+- [ ] Duty status enforcement
+- [ ] Trip start/complete workflow
 
 ### Fleet Service
-- ❌ Past date rejection for scheduling
-- ❌ Maintenance alert trigger (cron)
-- ❌ Active trip blocking for maintenance
+- [ ] Past date rejection for scheduling
+- [ ] Maintenance alert trigger (cron)
+- [ ] Active trip blocking for maintenance
 
 ---
 
@@ -287,7 +237,7 @@ ALTER TABLE Vehicles ADD COLUMN insuranceExpiry Date;
 |-----------|--------|----------|--------|
 | Operations Service - Actions | 40% | HIGH | 3-4 days |
 | Operations Service - Events | 0% | HIGH | 2-3 days |
-| Driver Service - Actions | 40% | HIGH | 2-3 days |
+| Driver Service - Actions | 50% | HIGH | 2-3 days |
 | Driver Service - Events | 0% | HIGH | 1-2 days |
 | Fleet Service - Actions | 20% | MEDIUM | 2-3 days |
 | Fleet Service - Events | 0% | MEDIUM | 1-2 days |

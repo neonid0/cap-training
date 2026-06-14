@@ -26,7 +26,7 @@ service DriverService @(
 extend service DriverService with {
 
     @(requires: 'driver')
-    action applyTrip(trip: db.Trips:ID);
+    action applyForTrip(trip: db.Trips:ID);
 
     @(requires: 'driver')
     action revokeTrip(trip: db.Trips:ID);
