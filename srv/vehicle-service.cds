@@ -17,8 +17,11 @@ service VehicleService @(odata: '/vehicle') {
         excluding {
             managed
         }
+        // where
+        //     tenant.status = 'ASD'
         order by
-            plateNumber desc;
+            plateNumber desc
+
 }
 
 // it is a good way to separate concerns

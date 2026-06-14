@@ -1,0 +1,7 @@
+{
+    "requires": {
+        "multitenancy": true,
+        "tethering": true,
+        "auth": "mocked"
+    }
+}

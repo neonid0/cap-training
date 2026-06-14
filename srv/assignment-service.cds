@@ -37,9 +37,9 @@ extend service AssignmentService with {
 
     @requires: 'authenticated-user'
     @insertonly
-    action acceptAssignment(assignment: AssignmentService.Assignments:ID);
+    action acceptAssignment(assignment: db.Assignments:ID);
 
     @requires: 'authenticated-user'
     @insertonly
-    action rejectAssignment(assignment: AssignmentService.Assignments:ID);
+    action rejectAssignment(assignment: db.Assignments:ID);
 }

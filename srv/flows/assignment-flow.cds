@@ -1,4 +1,4 @@
-using AssignmentService from '../assignemnt-service.cds';
+using AssignmentService from '../assignment-service';
 
 annotate AssignmentService.Assignments with @flow.status: Status actions {
 
