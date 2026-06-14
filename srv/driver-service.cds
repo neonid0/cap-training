@@ -1,4 +1,4 @@
-using {neonid0.logiflow as db} from '../db/schema.cds';
+using {neonid0.logiflow as db} from '../db/schema';
 
 
 service DriverService @(
@@ -9,18 +9,25 @@ service DriverService @(
     @readonly
     entity Trips as
         projection on db.Trips {
+
             *,
-            vehicle.make || '|' || vehicle.model as vehicle,
+            currency.code as currency,
+        // vehicle.make || ' ' || vehicle.model as vehicle, // its cause some errors
         }
         excluding {
             driver
         }
         where
             status = 'P'
+        order by
+            createdAt desc
 }
 
-extend service DriverService with @(requires: 'driver') {
+extend service DriverService with {
 
+    @(requires: 'driver')
     action applyTrip(trip: db.Trips:ID);
+
+    @(requires: 'driver')
     action revokeTrip(trip: db.Trips:ID);
 }

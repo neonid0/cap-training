@@ -16,7 +16,49 @@
     "cds": {
         "requires": {
             "messaging": true,
-            "db": true
+            "db": true,
+            "auth": {
+                "[development]": {
+                    "kind": "mocked",
+                    "users": {
+                        "admin": {
+                            "password": "pass",
+                            "tenant": "admin",
+                            "roles": [
+                                "admin"
+                            ]
+                        },
+                        "processor": {
+                            "password": "pass",
+                            "tenant": "processor",
+                            "roles": [
+                                "processor"
+                            ]
+                        },
+                        "reviewer": {
+                            "password": "pass",
+                            "tenant": "reviewer",
+                            "roles": [
+                                "reviewer"
+                            ]
+                        },
+                        "driver": {
+                            "password": "pass",
+                            "tenant": "driver",
+                            "roles": [
+                                "driver"
+                            ]
+                        }
+                    },
+                    "tenants": {
+                        "name": "CrazyCars",
+                        "features": [
+                            "cruise",
+                            "park"
+                        ]
+                    }
+                }
+            }
         }
     }
 }

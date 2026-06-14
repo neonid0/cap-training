@@ -68,8 +68,8 @@ entity VehicleSchedules : cuid, managed {
     Maintenance : Association to Maintenances;
 
     type        : ScheduleType;
-    start       : DateTime @cds.valid.from;
-    end         : DateTime @cds.valid.to;
+    start       : DateTime;
+    end         : DateTime;
     notes       : String(1000);
 }
 
@@ -94,8 +94,8 @@ entity DriverSchedules : cuid, managed {
     maintenance : Association to Maintenances;
 
     type        : ScheduleType;
-    start       : DateTime @cds.valid.from;
-    end         : DateTime @cds.valid.to;
+    start       : DateTime;
+    end         : DateTime;
     notes       : String(1000);
 }
 
@@ -104,21 +104,22 @@ entity Trips : cuid, managed, temporal {
     vehicle              : Association to Vehicles;
     driver               : Association to Drivers;
 
-    start                : DateTime @cds.valid.from;
-    end                  : DateTime @cds.valid.to;
+    start                : DateTime;
+    end                  : DateTime;
     payout               : Price;
     currency             : Currency default 'EUR';
     originLocation       : Binary;
     destionationLocation : Binary;
     status               : TripStatus default 'D';
+    notes                : String(1000);
 }
 
 entity Maintenances : cuid, managed {
 
     vehicle     : Association to Vehicles;
 
-    start       : DateTime @cds.valid.from;
-    end         : DateTime @cds.valid.to;
+    start       : DateTime;
+    end         : DateTime;
     description : String(1000);
     status      : MaintenanceStatus default 'S';
 }
