@@ -1,0 +1,6 @@
+ID,vehicle_ID,trip_ID,Maintenance_ID,type,start,end,notes,createdAt,createdBy,modifiedAt,modifiedBy
+vs000001,37c59b20-1b5e-4c8d-9c3f-d3f1a3e8b101,t0000001,,T,2026-06-02T08:00:00Z,2026-06-03T18:00:00Z,İstanbul - Ankara Tamamlanan Sefer Sebepli Bloke,2026-05-30T09:00:00Z,processor@routech.com,2026-06-03T18:05:00Z,system@routech.com
+vs000002,9f8e7d6c-5b4a-3f2e-1d0c-b9a8f7e6d5c4,t0000002,,T,2026-06-14T06:00:00Z,2026-06-15T22:00:00Z,Aktif Devam Eden Ankara - İzmir Seferi Takvimi,2026-06-10T11:00:00Z,processor@routech.com,2026-06-14T21:00:00Z,system@routech.com
+vs000003,1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d,,,M,2026-06-13T08:30:00Z,2026-06-15T18:00:00Z,Aktif Devam Eden Ağır Bakım Sebepli Araç Blokajı,2026-06-12T16:00:00Z,admin@routech.com,2026-06-13T08:30:00Z,admin@routech.com
+vs000004,37c59b20-1b5e-4c8d-9c3f-d3f1a3e8b101,,m0000001,M,2026-06-01T08:00:00Z,2026-06-01T17:00:00Z,Geçmiş Periyodik 100k Bakım Kilitlenmesi,2026-05-25T09:00:00Z,admin@routech.com,2026-06-01T17:05:00Z,admin@routech.com
+vs000005,9f8e7d6c-5b4a-3f2e-1d0c-b9a8f7e6d5c4,,m0000002,M,2026-06-02T09:00:00Z,2026-06-02T15:00:00Z,Geçmiş Fren Balatası Değişimi Blokajı,2026-06-01T10:00:00Z,admin@routech.com,2026-06-02T15:10:00Z,admin@routech.com

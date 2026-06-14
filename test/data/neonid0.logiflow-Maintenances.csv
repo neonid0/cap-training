@@ -1,0 +1,61 @@
+ID,vehicle_ID,start,end,description,status,createdAt,createdBy,modifiedAt,modifiedBy
+m0000001,37c59b20-1b5e-4c8d-9c3f-d3f1a3e8b101,2026-06-01T08:00:00Z,2026-06-01T17:00:00Z,Periyodik 100k bakımı ve yağ değişimi,R,2026-05-25T09:00:00Z,admin@routech.com,2026-06-01T17:05:00Z,admin@routech.com
+m0000002,9f8e7d6c-5b4a-3f2e-1d0c-b9a8f7e6d5c4,2026-06-02T09:00:00Z,2026-06-02T15:00:00Z,Fren balataları kontrolü ve değişimi,R,2026-06-01T10:00:00Z,admin@routech.com,2026-06-02T15:10:00Z,admin@routech.com
+m0000003,1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d,2026-06-13T08:30:00Z,2026-06-15T18:00:00Z,Motor arıza lambası kontrolü - Ağır bakım,P,2026-06-12T16:00:00Z,admin@routech.com,2026-06-13T08:30:00Z,admin@routech.com
+m0000004,2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e,2026-06-04T08:00:00Z,2026-06-04T12:00:00Z,Lastik rotasyonu ve hava basınç ayarı,R,2026-06-03T11:00:00Z,processor@routech.com,2026-06-04T12:05:00Z,processor@routech.com
+m0000005,3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f,2026-06-05T10:00:00Z,2026-06-05T16:00:00Z,Dorse elektrik tesisatı onarımı,R,2026-06-04T14:00:00Z,processor@routech.com,2026-06-05T16:15:00Z,processor@routech.com
+m0000006,4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a,2026-06-16T09:00:00Z,2026-06-16T17:00:00Z,Planlı muayene öncesi genel kontrol,S,2026-06-10T09:00:00Z,admin@routech.com,2026-06-10T09:00:00Z,admin@routech.com
+m0000007,5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b,2026-06-06T08:00:00Z,2026-06-06T14:00:00Z,Klima gazı dolumu ve filtre değişimi,R,2026-06-05T15:00:00Z,processor@routech.com,2026-06-06T14:10:00Z,processor@routech.com
+m0000008,6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c,2026-06-07T09:00:00Z,2026-06-07T12:00:00Z,Takograf kalibrasyonu,R,2026-06-06T10:30:00Z,processor@routech.com,2026-06-07T12:00:00Z,processor@routech.com
+m0000009,7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d,2026-06-08T08:30:00Z,2026-06-08T17:30:00Z,Ön takım revizyonu ve amortisör değişimi,R,2026-06-07T11:00:00Z,admin@routech.com,2026-06-08T17:40:00Z,admin@routech.com
+m0000010,8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e,2026-06-09T10:00:00Z,2026-06-09T13:00:00Z,Silecek motoru değişimi,R,2026-06-08T14:00:00Z,processor@routech.com,2026-06-09T13:05:00Z,processor@routech.com
+m0000011,9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f,2026-06-14T07:00:00Z,2026-06-15T12:00:00Z,Debriyaj seti değişimi ve şanzıman kontrolü,P,2026-06-13T15:00:00Z,admin@routech.com,2026-06-14T07:00:00Z,admin@routech.com
+m0000012,42KON42,2026-06-11T09:00:00Z,2026-06-11T12:00:00Z,Yağ sızıntısı kontrolü,R,2026-06-10T16:00:00Z,processor@routech.com,2026-06-11T12:10:00Z,processor@routech.com
+m0000013,34LMN456,2026-06-05T08:00:00Z,2026-06-05T11:00:00Z,Far ayarı ve ampul değişimi,R,2026-06-04T10:00:00Z,processor@routech.com,2026-06-05T11:00:00Z,processor@routech.com
+m0000014,06VWV06,2026-06-12T14:00:00Z,2026-06-12T18:00:00Z,AdBlue sistemi sensör temizliği,R,2026-06-11T11:00:00Z,processor@routech.com,2026-06-12T18:05:00Z,processor@routech.com
+m0000015,35MB35,2026-06-09T08:30:00Z,2026-06-09T15:30:00Z,Fren diskleri tornalama,R,2026-06-08T09:00:00Z,admin@routech.com,2026-06-09T15:33:00Z,processor@routech.com
+m0000016,10BAL10,2026-06-17T08:00:00Z,2026-06-17T17:00:00Z,Sıvı bakımları ve filtreler,S,2026-06-12T10:00:00Z,processor@routech.com,2026-06-12T10:00:00Z,processor@routech.com
+m0000017,61TRA61,2026-06-13T09:00:00Z,2026-06-15T17:00:00Z,Enjektör temizliği ve ayarı,P,2026-06-12T14:00:00Z,admin@routech.com,2026-06-13T17:00:00Z,admin@routech.com
+m0000018,26ESK26,2026-06-12T08:00:00Z,2026-06-12T11:00:00Z,Akü değişimi ve şarj kontrolü,R,2026-06-11T16:00:00Z,processor@routech.com,2026-06-12T11:05:00Z,processor@routech.com
+m0000019,09AYD09,2026-06-18T09:30:00Z,2026-06-18T13:30:00Z,Ön cam çatlak onarımı,S,2026-06-13T11:00:00Z,processor@routech.com,2026-06-13T11:00:00Z,processor@routech.com
+m0000020,33MER33,2026-06-13T08:00:00Z,2026-06-13T10:00:00Z,Kabin içi ısıtıcı (Webasto) bakımı,R,2026-06-12T09:00:00Z,admin@routech.com,2026-06-13T10:20:00Z,processor@routech.com
+m0000021,27GAZ27,2026-06-19T08:00:00Z,2026-06-19T17:00:00Z,Diferansiyel yağı değişimi,S,2026-06-14T10:00:00Z,processor@routech.com,2026-06-14T10:00:00Z,processor@routech.com
+m0000022,54SAK54,2026-06-08T09:00:00Z,2026-06-08T14:00:00Z,Egzoz muayenesi ve tamiratı,R,2026-06-07T13:00:00Z,processor@routech.com,2026-06-08T14:15:00Z,processor@routech.com
+m0000023,38KAY38,2026-06-20T08:00:00Z,2026-06-20T12:00:00Z,Mazot filtresi değişimi,S,2026-06-14T15:00:00Z,processor@routech.com,2026-06-14T15:00:00Z,processor@routech.com
+m0000024,34LOG001,2026-06-22T09:00:00Z,2026-06-22T17:00:00Z,İlk 10k yetkili servis kontrolü,S,2026-06-14T11:00:00Z,admin@routech.com,2026-06-14T11:00:00Z,admin@routech.com
+m0000025,45MAN45,2026-06-21T08:00:00Z,2026-06-21T15:00:00Z,Retarder sistemi kontrolü,S,2026-06-13T16:00:00Z,processor@routech.com,2026-06-13T16:00:00Z,processor@routech.com
+m0000026,07FLY07,2026-06-14T08:00:00Z,2026-06-15T12:00:00Z,Hava kaçakları tespiti ve hortum değişimi,P,2026-06-13T17:00:00Z,admin@routech.com,2026-06-14T09:15:00Z,admin@routech.com
+m0000027,22EDI22,2026-06-03T09:00:00Z,2026-06-03T16:00:00Z,Dorse ayakları yağlanması ve bakımı,R,2026-06-02T10:00:00Z,processor@routech.com,2026-06-03T16:40:00Z,processor@routech.com
+m0000028,42FRG42,2026-06-11T08:30:00Z,2026-06-11T10:30:00Z,Sinyalizasyon ve lamba grubu kontrolü,R,2026-06-10T11:00:00Z,processor@routech.com,2026-06-11T10:55:00Z,processor@routech.com
+m0000029,06VLO06,2026-06-25T08:00:00Z,2026-06-25T17:00:00Z,Genel süspansiyon körükleri değişimi,S,2026-06-14T09:00:00Z,processor@routech.com,2026-06-14T09:00:00Z,processor@routech.com
+m0000030,34PGT34,2026-06-07T10:00:00Z,2026-06-07T13:00:00Z,Arka kapı kilit mekanizması onarımı,R,2026-06-06T15:00:00Z,processor@routech.com,2026-06-07T13:12:00Z,processor@routech.com
+m0000031,35CTR35,2026-06-26T08:00:00Z,2026-06-26T12:00:00Z,Motor kurum temizliği (Carbon Clean),S,2026-06-12T14:00:00Z,processor@routech.com,2026-06-12T14:00:00Z,processor@routech.com
+m0000032,16OPL16,2026-06-04T13:00:00Z,2026-06-04T15:30:00Z,Geri görüş kamerası kablo onarımı,R,2026-06-04T09:00:00Z,admin@routech.com,2026-06-04T15:30:00Z,processor@routech.com
+m0000033,34MAN101,2026-06-14T08:00:00Z,2026-06-15T11:00:00Z,Hava kompresörü revizyonu,P,2026-06-13T10:00:00Z,admin@routech.com,2026-06-14T11:00:00Z,admin@routech.com
+m0000034,06SCA06,2026-06-12T08:00:00Z,2026-06-12T09:35:00Z,Ayna ısıtma rezistansı değişimi,R,2026-06-11T14:00:00Z,processor@routech.com,2026-06-12T09:45:00Z,processor@routech.com
+m0000035,35IVC35,2026-06-28T09:00:00Z,2026-06-28T17:00:00Z,V kayışı ve gergi bilyası değişimi,S,2026-06-14T16:00:00Z,processor@routech.com,2026-06-14T16:00:00Z,processor@routech.com
+m0000036,10VRD10,2026-05-29T10:00:00Z,2026-05-29T14:00:00Z,Radyatör antifriz değişimi,R,2026-05-28T11:00:00Z,processor@routech.com,2026-05-29T14:22:00Z,processor@routech.com
+m0000037,41DAF41,2026-06-29T08:00:00Z,2026-06-29T16:00:00Z,Diferansiyel keçesi yenilenmesi,S,2026-06-14T13:00:00Z,processor@routech.com,2026-06-14T13:00:00Z,processor@routech.com
+m0000038,34FT123,2026-06-13T13:00:00Z,2026-06-13T16:00:00Z,Ön cam silecek fıskiye motoru,R,2026-06-12T17:00:00Z,processor@routech.com,2026-06-13T16:00:00Z,processor@routech.com
+m0000039,35VW999,2026-06-10T09:00:00Z,2026-06-10T11:00:00Z,Rot-balans ayarı,R,2026-06-09T15:00:00Z,admin@routech.com,2026-06-10T11:15:00Z,admin@routech.com
+m0000040,06REN06,2026-06-30T08:00:00Z,2026-06-30T17:00:00Z,Kardan mili istavroz değişimi,S,2026-06-14T14:00:00Z,processor@routech.com,2026-06-14T14:00:00Z,processor@routech.com
+m0000041,37c59b20-1b5e-4c8d-9c3f-d3f1a3e8b101,2026-07-15T08:00:00Z,2026-07-15T12:00:00Z,Kabin süspansiyonu kontrolü,S,2026-06-14T10:00:00Z,system@routech.com,2026-06-14T10:00:00Z,system@routech.com
+m0000042,9f8e7d6c-5b4a-3f2e-1d0c-b9a8f7e6d5c4,2026-07-20T09:00:00Z,2026-07-20T17:00:00Z,Dorse fren körükleri periyodik bakımı,S,2026-06-14T11:00:00Z,system@routech.com,2026-06-14T11:00:00Z,system@routech.com
+m0000043,1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d,2026-07-02T08:00:00Z,2026-07-02T14:00:00Z,Intercooler hortum kontrolleri,S,2026-06-14T09:00:00Z,admin@routech.com,2026-06-14T09:00:00Z,admin@routech.com
+m0000044,2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e,2026-07-05T10:00:00Z,2026-07-05T12:00:00Z,Egzoz manifold contası kontrolü,S,2026-06-14T12:00:00Z,processor@routech.com,2026-06-14T12:00:00Z,processor@routech.com
+m0000045,3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f,2026-07-10T08:00:00Z,2026-07-10T16:00:00Z,Isıtma ve soğutma radyatör temizliği,S,2026-06-14T15:00:00Z,processor@routech.com,2026-06-14T15:00:00Z,processor@routech.com
+m0000046,4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a,2026-07-12T09:00:00Z,2026-07-12T13:00:00Z,Yakıt şamandırası revizyonu,S,2026-06-14T16:00:00Z,admin@routech.com,2026-06-14T16:00:00Z,admin@routech.com
+m0000047,5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b,2026-07-18T08:00:00Z,2026-07-18T15:00:00Z,Dorse king pimi aşınma ölçümü,S,2026-06-14T13:00:00Z,processor@routech.com,2026-06-14T13:00:00Z,processor@routech.com
+m0000048,6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c,2026-07-22T09:00:00Z,2026-07-22T12:00:00Z,Gösterge paneli ışık revizyonu,S,2026-06-14T14:00:00Z,processor@routech.com,2026-06-14T14:00:00Z,processor@routech.com
+m0000049,7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d,2026-07-25T08:30:00Z,2026-07-25T17:30:00Z,Makas katları arası yağlama,S,2026-06-14T11:00:00Z,admin@routech.com,2026-06-14T11:00:00Z,admin@routech.com
+m0000050,8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e,2026-07-29T10:00:00Z,2026-07-29T13:00:00Z,Far yıkama motoru değişimi,S,2026-06-14T12:00:00Z,processor@routech.com,2026-06-14T12:00:00Z,processor@routech.com
+m0000051,9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f,2026-08-01T07:00:00Z,2026-08-01T12:00:00Z,Debriyaj üst merkez hidrolik değişimi,S,2026-06-14T10:00:00Z,admin@routech.com,2026-06-14T10:00:00Z,admin@routech.com
+m0000052,42KON42,2026-08-03T09:00:00Z,2026-08-03T12:00:00Z,Kabin hava filtresi yenilenmesi,S,2026-06-14T09:00:00Z,processor@routech.com,2026-06-14T09:00:00Z,processor@routech.com
+m0000053,34LMN456,2026-08-05T08:00:00Z,2026-08-05T11:00:00Z,Arka stop camı değişimi,S,2026-06-14T08:00:00Z,processor@routech.com,2026-06-14T08:00:00Z,processor@routech.com
+m0000054,06VWV06,2026-08-10T14:00:00Z,2026-08-10T18:00:00Z,Koltuk amortisör ayarları,S,2026-06-14T15:00:00Z,processor@routech.com,2026-06-14T15:00:00Z,processor@routech.com
+m0000055,35MB35,2026-08-12T08:30:00Z,2026-08-12T15:30:00Z,Direksiyon hidrolik hortum kontrolü,S,2026-06-14T16:00:00Z,admin@routech.com,2026-06-14T16:00:00Z,admin@routech.com
+m0000056,10BAL10,2026-08-15T08:00:00Z,2026-08-15T17:00:00Z,Diferansiyel havalandırma tapası,S,2026-06-14T11:00:00Z,processor@routech.com,2026-06-14T11:00:00Z,processor@routech.com
+m0000057,61TRA61,2026-08-18T09:00:00Z,2026-08-18T17:00:00Z,Turbo basınç sensörü testi,S,2026-06-14T14:00:00Z,admin@routech.com,2026-06-14T14:00:00Z,admin@routech.com
+m0000058,26ESK26,2026-08-22T08:00:00Z,2026-08-22T11:00:00Z,Cam silecek süpürgeleri yenileme,S,2026-06-14T12:00:00Z,processor@routech.com,2026-06-14T12:00:00Z,processor@routech.com
+m0000059,09AYD09,2026-08-25T09:30:00Z,2026-08-25T13:30:00Z,Kabin paspas takımı yenileme,S,2026-06-14T13:00:00Z,processor@routech.com,2026-06-14T13:00:00Z,processor@routech.com
+m0000060,33MER33,2026-08-28T08:00:00Z,2026-08-28T10:00:00Z,Motor alt muhafaza sacı sıkılması,S,2026-06-14T10:00:00Z,admin@routech.com,2026-06-14T10:00:00Z,admin@routech.com

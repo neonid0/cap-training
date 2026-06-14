@@ -17,16 +17,22 @@ service OperationService @(
 ) {
 
     @readonly
-    entity Trips        as projection on db.Trips;
+    entity Trips            as projection on db.Trips;
 
     @readonly
-    entity Vehicles     as projection on db.Vehicles;
+    entity Vehicles         as projection on db.Vehicles;
 
     @readonly
-    entity Drivers      as projection on db.Drivers;
+    entity Drivers          as projection on db.Drivers;
 
     @readonly
-    entity Maintenances as projection on db.Maintenances;
+    entity Maintenances     as projection on db.Maintenances;
+
+    @readonly
+    entity VehicleSchedules as projection on db.VehicleSchedules;
+
+    @readonly
+    entity DriverSchedules  as projection on db.DriverSchedules;
 }
 
 extend service OperationService with {

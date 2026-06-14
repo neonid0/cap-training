@@ -1,0 +1,41 @@
+ID,make,model,plateNumber,class,status,location,year,createdAt,createdBy,modifiedAt,modifiedBy
+37c59b20-1b5e-4c8d-9c3f-d3f1a3e8b101,Mercedes-Benz,Actros 1845,34ALM234,T,A,POINT(28.9784 41.0082),2022,2026-01-15T09:30:00Z,processor@routech.com,2026-06-10T14:22:00Z,processor@routech.com
+9f8e7d6c-5b4a-3f2e-1d0c-b9a8f7e6d5c4,Volvo,FH16 750,06ANK06,T,O,POINT(32.8597 39.9334),2023,2026-01-16T10:15:00Z,admin@routech.com,2026-06-14T21:00:00Z,system@routech.com
+1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d,Scania,R500,35IYTE35,T,M,POINT(26.5678 40.1234),2021,2026-01-17T11:00:00Z,admin@routech.com,2026-06-13T08:30:00Z,admin@routech.com
+2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e,Ford Trucks,F-MAX,16BUR16,T,A,POINT(29.0610 40.1826),2023,2026-01-20T08:45:00Z,processor@routech.com,2026-05-20T11:15:00Z,processor@routech.com
+3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f,MAN,TGX 18.510,07ANT07,T,O,POINT(30.7133 36.8969),2022,2026-01-22T14:20:00Z,processor@routech.com,2026-06-14T18:40:00Z,system@routech.com
+4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a,DAF,XF 530,41KOC41,T,A,POINT(29.9167 40.7667),2020,2026-01-25T16:10:00Z,admin@routech.com,2026-06-01T09:00:00Z,processor@routech.com
+5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b,Iveco,S-Way,01ADE01,T,A,POINT(35.3213 36.9914),2022,2026-02-01T10:00:00Z,processor@routech.com,2026-06-12T13:50:00Z,processor@routech.com
+6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c,Renault Trucks,T High 520,20DEN20,T,O,POINT(29.0875 37.7742),2021,2026-02-03T11:30:00Z,processor@routech.com,2026-06-14T15:22:00Z,system@routech.com
+7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d,Mercedes-Benz,Atego 1518,34XYZ789,K,A,POINT(28.9784 41.0082),2019,2026-02-05T09:15:00Z,admin@routech.com,2026-05-18T10:00:00Z,processor@routech.com
+8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e,Ford,Cargo 2533,06TR654,K,O,POINT(32.8597 39.9334),2018,2026-02-10T13:40:00Z,processor@routech.com,2026-06-14T19:10:00Z,system@routech.com
+9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f,Isuzu,NPR Long,35EGE35,K,M,POINT(27.1384 38.4237),2020,2026-02-12T15:25:00Z,admin@routech.com,2026-06-14T07:00:00Z,admin@routech.com
+0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a,Mitsubishi,Fuso Canter,42KON42,C,A,POINT(32.4833 37.8667),2021,2026-02-15T08:50:00Z,processor@routech.com,2026-06-11T16:45:00Z,processor@routech.com
+1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b,Ford,Transit Van,34LMN456,C,A,POINT(29.0000 41.0500),2022,2026-02-18T10:10:00Z,processor@routech.com,2026-06-05T11:20:00Z,processor@routech.com
+2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c,Volkswagen,Crafter,06VWV06,C,O,POINT(32.8000 39.9000),2023,2026-02-20T11:40:00Z,processor@routech.com,2026-06-14T20:30:00Z,system@routech.com
+3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d,Mercedes-Benz,Sprinter,35MB35,C,A,POINT(27.1500 38.4500),2022,2026-02-22T14:15:00Z,admin@routech.com,2026-06-09T15:33:00Z,processor@routech.com
+4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e,Renault,Master,10BAL10,C,O,POINT(27.8833 39.6500),2021,2026-02-25T16:00:00Z,processor@routech.com,2026-06-14T22:15:00Z,system@routech.com
+5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f,Fiat,Ducato,61TRA61,C,M,POINT(39.7167 41.0000),2020,2026-03-01T09:20:00Z,admin@routech.com,2026-06-13T17:00:00Z,admin@routech.com
+6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a,Volvo,FM 420,26ESK26,K,A,POINT(30.5256 39.7767),2022,2026-03-03T10:45:00Z,processor@routech.com,2026-06-12T11:05:00Z,processor@routech.com
+7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b,Scania,G410,09AYD09,K,O,POINT(27.8333 37.8500),2021,2026-03-05T13:10:00Z,processor@routech.com,2026-06-14T17:45:00Z,system@routech.com
+8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c,Mercedes-Benz,Actros 1848,33MER33,T,A,POINT(34.6333 36.8000),2024,2026-03-08T15:50:00Z,admin@routech.com,2026-06-13T10:20:00Z,processor@routech.com
+9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c,Volvo,FH 500,27GAZ27,T,O,POINT(37.3833 37.0667),2023,2026-03-10T11:20:00Z,processor@routech.com,2026-06-14T23:10:00Z,system@routech.com
+0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d,MAN,TGS 33.400,54SAK54,K,A,POINT(30.4000 40.7667),2020,2026-03-12T08:30:00Z,processor@routech.com,2026-06-08T14:15:00Z,processor@routech.com
+1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e,Iveco,Eurocargo,38KAY38,K,O,POINT(35.4833 38.7333),2019,2026-03-15T14:40:00Z,processor@routech.com,2026-06-14T16:30:00Z,system@routech.com
+2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f,DAF,XG+,34LOG001,T,A,POINT(28.9500 41.0200),2024,2026-03-18T17:15:00Z,admin@routech.com,2026-06-14T12:00:00Z,admin@routech.com
+3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a,Scania,S540,45MAN45,T,O,POINT(27.4167 38.6167),2023,2026-03-20T10:05:00Z,processor@routech.com,2026-06-14T19:55:00Z,system@routech.com
+4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b,Renault Trucks,D Wide,07FLY07,K,M,POINT(30.7000 36.9000),2021,2026-03-22T09:50:00Z,admin@routech.com,2026-06-14T09:15:00Z,admin@routech.com
+5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c,Ford Trucks,1833 Cargo,22EDI22,K,A,POINT(26.5500 41.6667),2020,2026-03-25T11:10:00Z,processor@routech.com,2026-06-03T16:40:00Z,processor@routech.com
+6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d,Mercedes-Benz,Actros 1851,42FRG42,T,A,POINT(32.5000 37.8800),2022,2026-03-28T13:20:00Z,processor@routech.com,2026-06-11T10:55:00Z,processor@routech.com
+7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e,Volvo,FMX 460,06VLO06,K,O,POINT(32.8500 39.9200),2023,2026-04-01T15:30:00Z,processor@routech.com,2026-06-14T21:40:00Z,system@routech.com
+8c9d0e1f-2a3b-4c5d-5d6e-8f9a0b1c2d3e,Peugeot,Boxer,34PGT34,C,A,POINT(28.9000 41.0400),2022,2026-04-03T10:15:00Z,processor@routech.com,2026-06-07T13:12:00Z,processor@routech.com
+9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a,Citroen,Jumper,35CTR35,C,O,POINT(27.1200 38.4000),2021,2026-04-05T08:40:00Z,processor@routech.com,2026-06-14T20:10:00Z,system@routech.com
+0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b,Opel,Movano,16OPL16,C,A,POINT(29.0500 40.1900),2022,2026-04-08T11:55:00Z,admin@routech.com,2026-06-04T15:30:00Z,processor@routech.com
+1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c,MAN,TGX 26.470,34MAN101,T,M,POINT(28.9800 41.0100),2023,2026-04-10T14:30:00Z,admin@routech.com,2026-06-14T11:00:00Z,admin@routech.com
+2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d,Scania,G450,06SCA06,K,A,POINT(32.8600 39.9400),2022,2026-04-12T16:10:00Z,processor@routech.com,2026-06-12T09:45:00Z,processor@routech.com
+3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e,Iveco,X-Way,35IVC35,T,O,POINT(27.1400 38.4300),2023,2026-04-15T10:20:00Z,processor@routech.com,2026-06-14T18:25:00Z,system@routech.com
+4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f,Mercedes-Benz,Atego 1218,10VRD10,K,A,POINT(27.8900 39.6600),2021,2026-04-18T09:05:00Z,processor@routech.com,2026-05-29T14:22:00Z,processor@routech.com
+5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a,DAF,CF 450,41DAF41,K,O,POINT(29.9200 40.7700),2022,2026-04-20T13:40:00Z,processor@routech.com,2026-06-14T22:45:00Z,system@routech.com
+6d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0b,Ford,Transit Custom,34FT123,C,A,POINT(29.0100 41.0600),2023,2026-04-22T15:50:00Z,processor@routech.com,2026-06-13T16:00:00Z,processor@routech.com
+7e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b,Volkswagen,Transporter,35VW999,C,A,POINT(27.1600 38.4600),2024,2026-04-25T11:15:00Z,admin@routech.com,2026-06-10T11:15:00Z,admin@routech.com
+8f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c,Renault Trucks,K Range,06REN06,K,O,POINT(32.8700 39.9500),2022,2026-04-28T14:30:00Z,processor@routech.com,2026-06-14T19:30:00Z,system@routech.com

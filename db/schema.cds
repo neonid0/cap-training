@@ -11,7 +11,10 @@ namespace neonid0.logiflow;
 type Price             : Decimal(9, 2);
 
 type VehicleClass      : String enum {
-    TRUCK = 'T';
+    SEMI_TRAILER = 'T';
+    RIGID_TRUCK = 'K';
+    LIGHT_TRUCK = 'C';
+    MINIVAN = 'V';
 }
 
 type VehicleStatus     : String enum {
@@ -35,7 +38,7 @@ type DriverStatus      : String enum {
 type TripStatus        : String enum {
     DRAFT = 'D';
     PUBLISHED = 'P';
-    IN_REVIEW = 'R';
+    IN_REVIEW = 'I';
     ACCEPTED = 'A';
     REJECTED = 'R';
     BLOCKED = 'B';
@@ -51,7 +54,7 @@ type MaintenanceStatus : String enum {
 entity Vehicles : cuid, managed {
 
     key plateNumber : String;
-        schedule    : Association to many DriverSchedules
+        schedule    : Association to many VehicleSchedules
                           on schedule.vehicle = $self;
 
         make        : String(32);
@@ -59,7 +62,9 @@ entity Vehicles : cuid, managed {
         class       : VehicleClass;
         year        : Integer;
         status      : VehicleStatus default 'A';
-        location    : Binary;
+
+        @cds.HandleAs: 'Geometry'
+        location    : String;
 }
 
 entity VehicleSchedules : cuid, managed {
@@ -83,7 +88,10 @@ entity Drivers : cuid, managed {
     lastName              : String(64);
     name                  : String = firstName || ' ' || lastName;
     allowedVehicleClasses : array of VehicleClass;
-    location              : Binary;
+
+    @cds.HandleAs: 'Geometry'
+    location              : String;
+
     status                : DriverStatus default 'A';
 }
 
@@ -100,19 +108,24 @@ entity DriverSchedules : cuid, managed {
     notes       : String(1000);
 }
 
-entity Trips : cuid, managed, temporal {
+entity Trips : cuid, managed {
 
-    vehicle              : Association to Vehicles;
-    driver               : Association to Drivers;
+    vehicle             : Association to Vehicles;
+    driver              : Association to Drivers;
 
-    start                : DateTime;
-    end                  : DateTime;
-    payout               : Price;
-    currency             : Currency default 'EUR';
-    originLocation       : Binary;
-    destionationLocation : Binary;
-    status               : TripStatus default 'D';
-    notes                : String(1000);
+    start               : DateTime;
+    end                 : DateTime;
+    payout              : Price;
+    currency            : Currency default 'EUR';
+
+    @cds.HandleAs: 'Geometry'
+    originLocation      : String;
+
+    @cds.HandleAs: 'Geometry'
+    destinationLocation : String;
+
+    status              : TripStatus default 'D';
+    notes               : String(1000);
 }
 
 entity Maintenances : cuid, managed {

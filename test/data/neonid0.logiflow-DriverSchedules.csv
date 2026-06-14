@@ -1,0 +1,6 @@
+ID,vehicle_ID,driver_ID,trip_ID,maintenance_ID,type,start,end,notes,createdAt,createdBy,modifiedAt,modifiedBy
+ds000001,37c59b20-1b5e-4c8d-9c3f-d3f1a3e8b101,d0100001-1b5e-4c8d-9c3f-d3f1a3e8b101,t0000001,,T,2026-06-02T08:00:00Z,2026-06-03T18:00:00Z,Ahmet Yilmaz - Istanbul Seferi Mesguliyeti,2026-05-30T09:00:00Z,processor@routech.com,2026-06-03T18:05:00Z,system@routech.com
+ds000002,9f8e7d6c-5b4a-3f2e-1d0c-b9a8f7e6d5c4,d0100002-2b5e-4c8d-9c3f-d3f1a3e8b102,t0000002,,T,2026-06-14T06:00:00Z,2026-06-15T22:00:00Z,Mehmet Kaya - Aktif Devam Eden Ankara Seferi,2026-06-10T11:00:00Z,processor@routech.com,2026-06-14T21:00:00Z,system@routech.com
+ds000003,,d0100001-1b5e-4c8d-9c3f-d3f1a3e8b101,,,S,2026-06-14T08:00:00Z,2026-06-14T17:00:00Z,Standart Gunluk Surucu Vardiya Tanimi,2026-06-14T08:00:00Z,system@routech.com,2026-06-14T08:00:00Z,system@routech.com
+ds000004,,d0100002-2b5e-4c8d-9c3f-d3f1a3e8b102,,,S,2026-06-14T08:00:00Z,2026-06-14T17:00:00Z,Standart Gunluk Surucu Vardiya Tanimi,2026-06-14T08:00:00Z,system@routech.com,2026-06-14T08:00:00Z,system@routech.com
+ds000005,3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f,d0100010-0b5e-4c8d-9c3f-d3f1a3e8b110,t0000004,,T,2026-06-14T12:00:00Z,2026-06-16T10:00:00Z,Serkan Kurt - Antalya Gida Tasimasi Gorevi,2026-06-12T14:00:00Z,processor@routech.com,2026-06-14T18:40:00Z,system@routech.com
