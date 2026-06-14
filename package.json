@@ -1,7 +1,8 @@
 {
-    "name": "cap-training",
+    "name": "logiflow",
     "version": "1.0.0",
     "dependencies": {
+        "@cap-js/audit-logging": "^1.2.1",
         "@sap/cds": "^9"
     },
     "devDependencies": {
@@ -14,14 +15,8 @@
     "private": true,
     "cds": {
         "requires": {
-            "db": true,
-            "messaging": true
-        },
-        "query": {
-            "limit": {
-                "default": 20,
-                "max": 100
-            }
+            "messaging": true,
+            "db": true
         }
     }
 }

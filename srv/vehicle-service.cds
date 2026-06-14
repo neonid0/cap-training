@@ -1,4 +1,4 @@
-using {neonid0.vehlo as db} from '../db/schema.cds';
+using {neonid0.vehlo as db} from '../db/schema-old';
 
 @cds.query.limit: {
     default: 20,

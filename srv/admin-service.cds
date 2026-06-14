@@ -1,4 +1,4 @@
-using {neonid0.vehlo as db} from '../db/schema';
+using {neonid0.vehlo as db} from '../db/schema-old';
 
 service AdminService @(
     odata   : '/admin',

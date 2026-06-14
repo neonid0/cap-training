@@ -1,132 +1,133 @@
 using {
     cuid,
     managed,
-    User
+    temporal,
+    Currency
 } from '@sap/cds/common';
 
-namespace neonid0.vehlo;
+namespace neonid0.logiflow;
+
+
+type Price             : Decimal(9, 2);
+
+type VehicleClass      : String enum {
+    TRUCK = 'T';
+}
+
+type VehicleStatus     : String enum {
+    AVAILABLE = 'A';
+    ON_TRIP = 'O';
+    MAINTENANCE = 'M';
+}
+
+type ScheduleType      : String enum {
+    TRIP = 'T';
+    MAINT = 'M';
+    BLOCK = 'B';
+    SHIFT = 'S';
+}
+
+type DriverStatus      : String enum {
+    ACTIVE = 'A';
+    OFF_DUTY = 'O';
+}
+
+type TripStatus        : String enum {
+    DRAFT = 'D';
+    PUBLISHED = 'P';
+    IN_REVIEW = 'R';
+    ACCEPTED = 'A';
+    REJECTED = 'R';
+    BLOCKED = 'B';
+    COMPLETED = 'C';
+}
+
+type MaintenanceStatus : String enum {
+    SCHEDULED = 'S';
+    IN_PROGRESS = 'P';
+    RESOLVED = 'R';
+}
 
 entity Vehicles : cuid, managed {
 
-    tenant        : Association to Tenants;
+    schedule    : Association to many DriverSchedules
+                      on schedule.vehicle = $self;
 
-    plateNumber   : String;
-    make          : String;
-    model         : String;
-    year          : Integer;
-    status        : localized String; // this is for an example of localization
-    vin           : String;
-    lastServiceAt : DateTime;
+    plateNumber : String;
+    class       : VehicleClass;
+    status      : VehicleStatus;
+    location    : Binary;
 }
 
-entity Tenants : cuid, managed {
+entity VehicleSchedules : cuid, managed {
 
-    // These are just backlinks when we use them for one-to-many associations for navigations
-    //    vehicle           : Association to many Vehicles
-    //                            on vehicle.tenant = $self;
-    //    userAccount       : Association to many UserAccounts
-    //                            on userAccount.tenant = $self;
-    //    driver            : Association to many Drivers
-    //                            on driver.tenant = $self;
-    //    maintanenceRecord : Association to many MaintanenceRecords
-    //                            on maintanenceRecord.tenant = $self;
-    //    assignment        : Association to many Assignments
-    //                            on assignment.tenant = $self;
-    //    alert             : Association to many Alerts
-    //                            on alert.tenant = $self;
+    vehicle     : Association to Vehicles;
+    trip        : Association to Trips;
+    Maintenance : Association to Maintenances;
 
-    subdomain   : String;
-    displayName : String;
-    planTier    : String;
-    status      : String;
+    type        : ScheduleType;
+    start       : DateTime @cds.valid.from;
+    end         : DateTime @cds.valid.to;
+    notes       : String(1000);
 }
 
-entity UserAccounts : cuid, managed {
+entity Drivers : cuid, managed {
 
-    tenant            : Association to Tenants;
+    schedule              : Association to many DriverSchedules
+                                on schedule.driver = $self;
 
-
-    // i dont know is it good?
-    maintanenceRecord : Association to many MaintanenceRecords
-                            on maintanenceRecord.assignedTechnician = $self;
-    driver            : Association to many Drivers
-                            on driver.userAccount = $self;
-
-    firstName         : String;
-    lastName          : String;
-    name              : String = firstName || ' ' || lastName;
-    email             : String;
-    role              : String  @cds.on.insert: 'inserted'  @cds.on.update: 'updated'; // this is huge !!
-    isActive          : Boolean default true;
+    name                  : String;
+    allowedVehicleClasses : array of VehicleClass;
+    location              : Binary;
+    status                : DriverStatus;
 }
 
-entity Drivers : managed, cuid {
+entity DriverSchedules : cuid, managed {
 
-    tenant        : Association to Tenants;
-    userAccount   : Association to UserAccounts;
+    vehicle     : Association to Vehicles;
+    driver      : Association to Drivers;
+    trip        : Association to Trips;
+    maintenance : Association to Maintenances;
 
-    licenseNumber : String;
-    licenseClass  : String;
-    licenseExpiry : DateTime;
-    status        : String;
+    type        : ScheduleType;
+    start       : DateTime @cds.valid.from;
+    end         : DateTime @cds.valid.to;
+    notes       : String(1000);
 }
 
-entity Assignments : cuid, managed {
+entity Trips : cuid, managed, temporal {
 
-    tenant    : Association to Tenants;
-    vehicle   : Association to Vehicles;
-    driver    : Association to Drivers;
+    vehicle              : Association to Vehicles;
+    driver               : Association to Drivers;
 
-    startTime : DateTime @cds.validfrom;
-    endTime   : DateTime @cds.validto;
-    status    : String;
-    notes     : String;
+    start                : DateTime @cds.valid.from;
+    end                  : DateTime @cds.valid.to;
+    payout               : Price;
+    currency             : Currency;
+    originLocation       : Binary;
+    destionationLocation : Binary;
+    status               : TripStatus;
 }
 
-// This for OCC
-annotate Assignments with {
+entity Maintenances : cuid, managed {
+
+    vehicle     : Association to Vehicles;
+
+    start       : DateTime @cds.valid.from;
+    end         : DateTime @cds.valid.to;
+    description : String(1000);
+    status      : MaintenanceStatus;
+}
+
+
+annotate Vehicles with {
     modifiedAt @odata.etag
 }
 
-entity MaintanenceRecords : cuid, managed {
-
-    tenant             : Association to Tenants;
-    vehicle            : Association to Vehicles;
-    assignedTechnician : Association to UserAccounts;
-
-    type               : String;
-    severity           : String;
-    status             : String;
-    description        : String;
-    resolutionNotes    : String;
-    cost               : Double;
-    scheduledAt        : DateTime;
-    completedAt        : DateTime;
+annotate Trips with {
+    modifiedAt @odata.etag
 }
 
-entity Alerts : cuid {
-
-    tenant            : Association to Tenants;
-    vehicle           : Association to Vehicles;
-    maintanenceRecord : Association to MaintanenceRecords;
-
-    alertType         : String;
-    severity          : String;
-    status            : String;
-    message           : String;
-    trigerredAt       : DateTime;
-    acknowledgedAt    : Timestamp  @cds.on.insert: $now   @cds.on.update: $now;
-    acknowledgedBy    : User       @cds.on.insert: $user  @cds.on.update: $user;
-}
-
-entity AuditLogs : cuid {
-
-    tenant     : Association to Tenants;
-
-    entityType : String;
-    entityId   : UUID;
-    action     : String;
-    actorId    : String;
-    changes    : Binary;
-    occuredAt  : DateTime;
+annotate Maintenances with {
+    modifiedAt @odata.etag
 }

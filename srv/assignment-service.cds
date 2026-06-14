@@ -1,4 +1,4 @@
-using {neonid0.vehlo as db} from '../db/schema.cds';
+using {neonid0.vehlo as db} from '../db/schema-old';
 
 
 service AssignmentService @(odata: '/assignment') {
