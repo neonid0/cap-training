@@ -17,7 +17,6 @@ export class OperationService extends cds.ApplicationService {
             if (vehicle.status === VehicleStatus.MAINTENANCE || vehicle.status === VehicleStatus.ON_TRIP) return req.reject(409, 'Vehicle is not available.');
 
             const isOccupiedVehicle = await isVehicleOccupied(vehicleId, start, end);
-            console.log(isOccupiedVehicle)
             if (isOccupiedVehicle) return req.reject(409, 'Vehicle is occupied during the requested period.');
 
             const driver = await SELECT.one.from(Drivers).where({ ID: driverId });
