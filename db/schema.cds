@@ -1,41 +1,44 @@
 using {
     cuid,
     managed,
-    temporal,
     Currency
 } from '@sap/cds/common';
 
 namespace neonid0.logiflow;
 
+type ApiResponse {
+    status : String(3);
+    id     : UUID;
+}
 
-type Price             : Decimal(9, 2);
+type Price              : Decimal(9, 2);
 
-type VehicleClass      : String enum {
+type VehicleClass       : String enum {
     SEMI_TRAILER = 'T';
     RIGID_TRUCK = 'K';
     LIGHT_TRUCK = 'C';
     MINIVAN = 'V';
 }
 
-type VehicleStatus     : String enum {
+type VehicleStatus      : String enum {
     AVAILABLE = 'A';
     ON_TRIP = 'O';
     MAINTENANCE = 'M';
 }
 
-type ScheduleType      : String enum {
+type ScheduleType       : String enum {
     TRIP = 'T';
     MAINT = 'M';
     BLOCK = 'B';
     SHIFT = 'S';
 }
 
-type DriverStatus      : String enum {
+type DriverStatus       : String enum {
     ACTIVE = 'A';
     OFF_DUTY = 'O';
 }
 
-type TripStatus        : String enum {
+type TripStatus         : String enum {
     DRAFT = 'D';
     PUBLISHED = 'P';
     IN_REVIEW = 'I';
@@ -43,12 +46,19 @@ type TripStatus        : String enum {
     REJECTED = 'R';
     BLOCKED = 'B';
     COMPLETED = 'C';
+    CANCELLED = 'X';
 }
 
-type MaintenanceStatus : String enum {
+type MaintenanceStatus  : String enum {
     SCHEDULED = 'S';
     IN_PROGRESS = 'P';
     RESOLVED = 'R';
+}
+
+type TripReviewDecision : String enum {
+    APPROVED = 'A';
+    REJECTED = 'R';
+    BLOCKED = 'B';
 }
 
 entity Vehicles : cuid, managed {
@@ -88,11 +98,10 @@ entity Drivers : cuid, managed {
     lastName              : String(64);
     name                  : String = firstName || ' ' || lastName;
     allowedVehicleClasses : array of VehicleClass;
+    status                : DriverStatus default 'A';
 
     @cds.HandleAs: 'Geometry'
     location              : String;
-
-    status                : DriverStatus default 'A';
 }
 
 entity DriverSchedules : cuid, managed {
@@ -116,7 +125,7 @@ entity Trips : cuid, managed {
     start               : DateTime;
     end                 : DateTime;
     payout              : Price;
-    currency            : Currency default 'EUR';
+    currency            : Currency;
 
     @cds.HandleAs: 'Geometry'
     originLocation      : String;

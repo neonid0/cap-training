@@ -16,8 +16,8 @@ Many critical Actions, Events, Access Controls, and Constraints are missing or i
 | `sendToMaintenance` | ✅ Exists | Wrong name, should be internal |
 
 ### ❌ MISSING Actions
-- [ ] `createTripDraft` (Processor) - tripId, dates, locations, vehicleId
-- [ ] `assignDriver` (Processor) - tripId, driverId
+- [x] `createTripDraft` (Processor) - tripId, dates, locations, vehicleId
+- [x] `assignDriver` (Processor) - tripId, driverId
 - [ ] `cancelTrip` (Processor) - tripId, reason
 - [ ] `updateTrip` (Processor) - tripId, updates
 

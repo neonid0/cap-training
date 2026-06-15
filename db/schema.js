@@ -7,7 +7,8 @@ export const TripStatus = {
     ACCEPTED: 'A',
     REJECTED: 'R',
     BLOCKED: 'B',
-    COMPLETED: 'C'
+    COMPLETED: 'C',
+    CANCELLED: 'X'
 };
 
 export const VehicleStatus = {
@@ -15,6 +16,11 @@ export const VehicleStatus = {
     ON_TRIP: 'O',
     MAINTENANCE: 'M'
 };
+
+export const DriverStatus = {
+    ACTIVE: 'A',
+    OFF_DUTY: 'O',
+}
 
 export const MaintenanceStatus = {
     SCHEDULED: 'S',

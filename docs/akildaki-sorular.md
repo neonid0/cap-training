@@ -1,0 +1,5 @@
+- bg event handlerlari nereye nasil yazmali
+- Servisler arasi hizli haberlesme (gRPC, http) ile messagingi nasil impleme etmeliyiz (proje yapisi nasil olmalidir)
+- mock authtan sonra xsuaa/ias farki nedir (ikisi de cloud da mi calisiyor)
+- Dis servisleri ve datalari baglamak icin en iyi yontem federate mi
+- state flow nasil kullanilir, use case icinde nasil implement edilir
