@@ -152,9 +152,7 @@ annotate Vehicles with {
     modifiedAt @odata.etag
 }
 
-annotate Trips with {
-    modifiedAt @odata.etag
-}
+// remove OCC for Trips as its managed by the flow and should not cause conflicts when multiple users are working on the same trip
 
 annotate Maintenances with {
     modifiedAt @odata.etag
