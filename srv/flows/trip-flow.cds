@@ -10,7 +10,7 @@ annotate OperationService.Trips with @flow.status: status actions {
         #PUBLISHED
     ]                                                          @to: #IN_REVIEW;
     cancelTrip                       @from       : #ACCEPTED   @to: @CANCELLED;
-    reviewTrip                       @from       : #PUBLISHED  @to: [
+    reviewTrip                       @from       : #IN_REVIEW  @to: [
         #DRAFT,
         #ACCEPTED,
         #REJECTED,
