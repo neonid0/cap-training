@@ -20,65 +20,56 @@ export class OperationService extends cds.ApplicationService {
             if (isOccupiedVehicle) return req.reject(409, 'Vehicle is occupied during the requested period.');
 
             const driver = await SELECT.one.from(Drivers).where({ ID: driverId });
-            if (driver.status === 'ON_TRIP') return req.reject(409, 'Driver is not available.');
+            if (driver.status === 'OFF_DUTY') return req.reject(409, 'Driver is not available.');
 
             const isOccupiedDriver = await isDriverOccupied(driverId, start, end);
             if (isOccupiedDriver) return req.reject(409, 'Driver is occupied during the requested period.');
 
-            const asd = await INSERT.into(Trips).entries({ vehicle_ID: vehicleId, driver_ID: driverId, start, end, payout, currency_code: currency, originLocation: origin, destinationLocation: destination, status: TripStatus.DRAFT, notes });
-
-            return asd
+            await INSERT.into(Trips).entries({ vehicle_ID: vehicleId, driver_ID: driverId, startTime: start, endTime: end, payout: payout, currency_code: currency, originLocation: origin, destinationLocation: destination, status: TripStatus.DRAFT, notes: notes });
         })
 
         this.on('publishTrip', async req => {
 
-            let { trip: tripId, driver: driverId } = req.data;
+            let tripId = req.params[0];
+            let { driver: driverId } = req.data;
 
             const trip = await SELECT.one.from(Trips, tripId);
-            if (trip.status != TripStatus.DRAFT) req.reject(400, 'Trip must be in draft')
+            if (!trip) return req.reject(404, 'Trip not found.');
 
-            let data
-            if (!driverId) {
-                data = await UPDATE(Trips, tripId).set({ status: TripStatus.PUBLISHED });
+            if (driverId) {
+                await UPDATE(Trips, tripId).set({ driver_ID: driverId, status: TripStatus.IN_REVIEW });
             } else {
-                data = await UPDATE(Trips, tripId).set({ status: TripStatus.IN_REVIEW, driver_ID: driverId });
+                await UPDATE(Trips, tripId).set({ status: TripStatus.PUBLISHED });
             }
 
-            return data;
+            return await SELECT.one.from(Trips, tripId);
         })
 
         this.on('assignDriver', async req => {
 
-            let { trip: tripId, driver: driverId } = req.data;
+            const tripId = req.params[0];
+            const { driver: driverId } = req.data;
 
-            const trip = await SELECT.one.from(Trips)
-                .where({ ID: tripId })
-                .forUpdate();
+            const trip = await SELECT.one.from(Trips, tripId);
 
             if (!trip) return req.reject(404, 'Trip not found.');
-            if (!(trip.status !== TripStatus.DRAFT || trip.status != TripStatus.PUBLISHED)) return req.reject(409, 'Only trips in DRAFT and PUBLISHED status can be assigned a driver.');
 
             const isOccupiedDriver = await isDriverOccupied(driverId, trip.start, trip.end);
             if (isOccupiedDriver) return req.reject(409, 'Driver is occupied during the requested period.');
 
-            await UPDATE(Trips, tripId).set({ driver_ID: driverId, status: TripStatus.IN_REVIEW });
+            await UPDATE(Trips, tripId).set({ driver_ID: driverId });
 
-            // i guess event handling should be done on a separate service/file
-            req.tx.emit('DriverAssigned', { trip: tripId, driver: driverId });
-            req.tx.emit('sentTripForReview', { trip: tripId });
-            req.tx.emit('sendNotification', { user: driverId, message: `You have been assigned to trip ${tripId}. Please review and accept or reject the trip.` });
+            return await SELECT.one.from(Trips, tripId);
         })
 
         this.on('cancelTrip', async req => {
 
-            let { trip: tripId } = req.data;
+            const tripId = req.params[0];
 
-            const trip = await SELECT.one.from(Trips, tripId).forUpdate();
-            if (!trip) req.reject(404, 'Trip not found.')
-            if (trip.status != TripStatus.ACCEPTED) req.reject(400, 'Cannot cancel a non-scheduled trip.')
-
-            await UPDATE(Trips, tripId).set({ status: TripStatus.CANCELLED });
+            const trip = await SELECT.one.from(Trips, tripId);
+            if (!trip) return req.reject(404, 'Trip not found.');
         })
+
 
         this.on('sendToMaintenance', async req => {
 
@@ -97,7 +88,8 @@ export class OperationService extends cds.ApplicationService {
             let trip = await SELECT.one.from(Trips, tripId).forUpdate();
             if (trip.status !== TripStatus.IN_REVIEW) return req.reject(409, 'Trip is not in review.');
 
-            await UPDATE(Trips, tripId).set({ status: mapToTrip(decision), reviewReason: reason });
+            const targetStatus = mapToTrip(decision);
+            await UPDATE(Trips, tripId).set({ status: targetStatus, reviewReason: reason });
         })
 
         // maybe there can be a better way
@@ -111,6 +103,8 @@ export class OperationService extends cds.ApplicationService {
                 //     this.emit('TripCancelled', { trip: trip.ID });
                 // })
             }
+
+            console.log(`Trip ${trip.ID} updated with status ${trip.status}`);
         }))
 
         super.init()
