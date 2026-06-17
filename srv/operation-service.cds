@@ -22,19 +22,19 @@ service OperationService @(
                                    currency: String(3) @cds.HandleAs: 'Currency',
                                    origin: String @cds.HandleAs: 'Geometry',
                                    destination: String @cds.HandleAs: 'Geometry',
-                                   notes: String(1000))                           returns db.ApiResponse;
+                                   notes: String(1000)) returns Trips;
 
             @(requires: 'processor')
-            action publishTrip(trip: db.Trips:ID not null, driver: db.Drivers:ID) returns db.ApiResponse;
+            action publishTrip(driver: db.Drivers:ID)   returns Trips;
 
             @(requires: 'processor')
-            action assignDriver(trip: db.Trips:ID not null, driver: db.Drivers:ID);
+            action assignDriver(driver: db.Drivers:ID)  returns Trips;
 
             @(requires: 'processor')
-            action cancelTrip(trip: db.Trips:ID not null);
+            action cancelTrip();
 
             @(requires: 'reviewer')
-            action reviewTrip(trip: db.Trips:ID not null, decision: db.TripReviewDecision not null, reason: String(1000));
+            action reviewTrip(decision: db.TripReviewDecision not null, reason: String(1000));
         };
 
     @readonly
