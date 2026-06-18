@@ -56,25 +56,25 @@ type MaintenanceStatus  : String enum {
 }
 
 type TripReviewDecision : String enum {
-    APPROVED = 'A';
+    ACCEPTED = 'A';
     REJECTED = 'R';
     BLOCKED = 'B';
 }
 
 entity Vehicles : cuid, managed {
 
-    key plateNumber : String;
-        schedule    : Association to many VehicleSchedules
-                          on schedule.vehicle = $self;
+    plateNumber : String;
+    schedule    : Association to many VehicleSchedules
+                      on schedule.vehicle = $self;
 
-        make        : String(32);
-        model       : String(64);
-        class       : VehicleClass;
-        year        : Integer;
-        status      : VehicleStatus default 'A';
+    make        : String(32);
+    model       : String(64);
+    class       : VehicleClass;
+    year        : Integer;
+    status      : VehicleStatus default 'A';
 
-        @cds.HandleAs: 'Geometry'
-        location    : String;
+    @cds.HandleAs: 'Geometry'
+    location    : String;
 }
 
 entity VehicleSchedules : cuid, managed {
@@ -153,6 +153,9 @@ annotate Vehicles with {
 }
 
 // remove OCC for Trips as its managed by the flow and should not cause conflicts when multiple users are working on the same trip
+// annotate Trips with {
+//     modifiedAt @odata.etag
+// }
 
 annotate Maintenances with {
     modifiedAt @odata.etag

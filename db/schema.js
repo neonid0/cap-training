@@ -34,6 +34,13 @@ export const ReviewDecision = {
     BLOCKED: 'B'
 };
 
+export const ScheduleType = {
+    TRIP: 'T',
+    MAINT: 'M',
+    BLOCK: 'B',
+    SHIFT: 'S',
+}
+
 export default {
     TripStatus,
     VehicleStatus,
