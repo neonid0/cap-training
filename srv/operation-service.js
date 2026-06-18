@@ -1,5 +1,6 @@
 import cds from '@sap/cds';
-import { TripStatus, VehicleStatus } from '../db/schema.js';
+
+import { TripStatus, VehicleStatus, ScheduleType } from '../db/schema.js';
 import { mapToTrip } from './utils/mapToStatus.js';
 import { isDriverOccupied, isVehicleOccupied } from './utils/isOccupied.js'
 
@@ -13,7 +14,7 @@ export class OperationService extends cds.ApplicationService {
 
             let { vehicle: vehicleId, driver: driverId, start, end, payout, currency, origin, destination, notes } = req.data;
 
-            const vehicle = await SELECT.one.from(Vehicles).where({ ID: vehicleId });
+            const vehicle = await SELECT.one.from(Vehicles, vehicleId);
             if (vehicle.status === VehicleStatus.MAINTENANCE || vehicle.status === VehicleStatus.ON_TRIP) return req.reject(409, 'Vehicle is not available.');
 
             const isOccupiedVehicle = await isVehicleOccupied(vehicleId, start, end);
@@ -70,17 +71,6 @@ export class OperationService extends cds.ApplicationService {
             if (!trip) return req.reject(404, 'Trip not found.');
         })
 
-
-        this.on('sendToMaintenance', async req => {
-
-            let { vehicle: vehicleId, start, end, notes } = req.data;
-
-            const isOccupiedVehicle = await isVehicleOccupied(vehicleId, start, end)
-            if (isOccupiedVehicle) return req.reject(409, 'Vehicle is occupied during the requested maintenance period.');
-
-            await INSERT.into(Maintenances).entries({ vehicle_ID: vehicleId, start, end, notes });
-        })
-
         this.on('reviewTrip', async req => {
 
             let { trip: tripId, decision, reason } = req.data;
@@ -90,6 +80,25 @@ export class OperationService extends cds.ApplicationService {
 
             const targetStatus = mapToTrip(decision);
             await UPDATE(Trips, tripId).set({ status: targetStatus, reviewReason: reason });
+        })
+
+        this.on('sendToMaintenance', async req => {
+
+            let vehicleId = req.params[0].ID;
+            let { start, end, description } = req.data;
+
+            const isOccupiedVehicle = await isVehicleOccupied(vehicleId, start, end)
+            if (isOccupiedVehicle) return req.reject(409, 'Vehicle is occupied during the requested maintenance period.');
+
+            const { uuid } = cds.utils
+            const maintenanceId = uuid();
+            await INSERT.into(Maintenances, { ID: maintenanceId, vehicle_ID: vehicleId, start, end, description });
+
+            const scheduleId = uuid();
+            console.log(scheduleId)
+            await INSERT.into(VehicleSchedules, { ID: scheduleId, vehicle_ID: vehicleId, Maintenance_ID: maintenanceId, type: ScheduleType.MAINT, start, end });
+
+            return SELECT.one.from(VehicleSchedules, scheduleId).where({ Maintenance_ID: maintenanceId });
         })
 
         // maybe there can be a better way

@@ -22,19 +22,19 @@ service OperationService @(
                                    currency: String(3) @cds.HandleAs: 'Currency',
                                    origin: String @cds.HandleAs: 'Geometry',
                                    destination: String @cds.HandleAs: 'Geometry',
-                                   notes: String(1000)) returns Trips;
+                                   notes: String(1000))                                       returns Trips;
 
             @(requires: 'processor')
-            action publishTrip(driver: db.Drivers:ID)   returns Trips;
+            action publishTrip(driver: db.Drivers:ID)                                         returns Trips;
 
             @(requires: 'processor')
-            action assignDriver(driver: db.Drivers:ID)  returns Trips;
+            action assignDriver(driver: db.Drivers:ID)                                        returns Trips;
 
             @(requires: 'processor')
             action cancelTrip();
 
             @(requires: 'reviewer')
-            action reviewTrip(decision: db.TripReviewDecision not null, reason: String(1000));
+            action reviewTrip(decision: db.TripReviewDecision not null, reason: String(1000)) returns Trips;
         };
 
     @readonly
@@ -42,7 +42,7 @@ service OperationService @(
         actions {
 
             @(requires: 'processor')
-            action sendToMaintenance(vehicle: db.Vehicles:ID not null, start: DateTime, end: DateTime, notes: String(1000));
+            action sendToMaintenance(start: DateTime, end: DateTime, description: String(1000)) returns VehicleSchedules;
         };
 
     @readonly
