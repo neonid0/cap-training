@@ -1,0 +1,79 @@
+_schema-version: 3.3.0
+ID: logiflow
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+  - name: logiflow-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      instances: 1
+      buildpack: nodejs_buildpack
+      routes:
+        - route: "${default-url}"
+        - route: "${default-host}.cert.${default-domain}"
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+          srv-cert-url: '${protocol}://${default-host}.cert.${default-domain}'
+    requires:
+      - name: logiflow-messaging
+      - name: logiflow-auditlog
+      - name: logiflow-db
+      - name: logiflow-ias
+        parameters:
+          config:
+            credential-type: X509_GENERATED
+            app-identifier: srv
+
+  - name: logiflow-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: logiflow-db
+
+resources:
+  - name: logiflow-messaging
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: enterprise-messaging
+      service-plan: default
+      path: ./event-mesh.json
+  - name: logiflow-auditlog
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: auditlog
+      service-plan: premium
+  - name: logiflow-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+  - name: logiflow-ias
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: identity
+      service-name: logiflow-ias
+      service-plan: application
+      config:
+        provided-apis:
+          - name: logiflow-ias-api
+            description: API exposed by the application
+        display-name: logiflow
+        oauth2-configuration:
+          token-policy:
+            access-token-format: "jwt"
+        xsuaa-cross-consumption: true

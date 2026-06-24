@@ -1,65 +1,71 @@
 {
-    "name": "logiflow",
-    "version": "1.0.0",
-    "type": "module",
-    "dependencies": {
-        "@cap-js/audit-logging": "^1.2.1",
-        "@sap/cds": "^9"
-    },
-    "devDependencies": {
-        "@cap-js/sqlite": "^2.4",
-        "cds-swagger-ui-express": "^0.11.0"
-    },
-    "scripts": {
-        "start": "cds-serve"
-    },
-    "private": true,
-    "cds": {
-        "requires": {
-            "messaging": true,
-            "db": true,
-            "auth": {
-                "[development]": {
-                    "kind": "mocked",
-                    "users": {
-                        "admin": {
-                            "password": "pass",
-                            "tenant": "admin",
-                            "roles": [
-                                "admin"
-                            ]
-                        },
-                        "processor": {
-                            "password": "pass",
-                            "tenant": "processor",
-                            "roles": [
-                                "processor"
-                            ]
-                        },
-                        "reviewer": {
-                            "password": "pass",
-                            "tenant": "reviewer",
-                            "roles": [
-                                "reviewer"
-                            ]
-                        },
-                        "driver": {
-                            "password": "pass",
-                            "tenant": "driver",
-                            "roles": [
-                                "driver"
-                            ]
-                        }
-                    },
-                    "tenants": {
-                        "name": "CrazyCars",
-                        "features": [
-                            "cruise",
-                            "park"
-                        ]
-                    }
-                }
+  "name": "logiflow",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@cap-js/audit-logging": "^1.2.1",
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2.4",
+    "@sap/cds-dk": "^9",
+    "cds-swagger-ui-express": "^0.11.0"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "messaging": true,
+      "db": true,
+      "auth": {
+        "[development]": {
+          "kind": "mocked",
+          "users": {
+            "admin": {
+              "password": "pass",
+              "tenant": "admin",
+              "roles": [
+                "admin"
+              ]
+            },
+            "processor": {
+              "password": "pass",
+              "tenant": "processor",
+              "roles": [
+                "processor"
+              ]
+            },
+            "reviewer": {
+              "password": "pass",
+              "tenant": "reviewer",
+              "roles": [
+                "reviewer"
+              ]
+            },
+            "driver": {
+              "password": "pass",
+              "tenant": "driver",
+              "roles": [
+                "driver"
+              ]
             }
+          },
+          "tenants": {
+            "name": "CrazyCars",
+            "features": [
+              "cruise",
+              "park"
+            ]
+          }
         }
+      },
+      "[production]": {
+        "auth": "ias"
+      }
     }
+  }
 }

@@ -10,6 +10,37 @@ export class OperationService extends cds.ApplicationService {
 
         const { Trips, Vehicles, Drivers, Maintenances, VehicleSchedules, DriverSchedules } = this.entities;
 
+        // Prevent direct UPDATE on status (must use actions)
+        this.before('UPDATE', Trips, async (req) => {
+            if (req.data.status) {
+                return req.reject(403, 'Use appropriate action (publishTrip, cancelTrip, etc.) to change trip status.');
+            }
+        });
+
+        // Validate state transitions before action execution
+        this.before(['publishTrip', 'assignDriver', 'cancelTrip', 'reviewTrip'], async req => {
+            const tripId = req.params[0];
+            const trip = await SELECT.one.from(Trips, tripId);
+
+            if (!trip) return req.reject(404, 'Trip not found.');
+
+            const currentStatus = trip.status;
+            const action = req.event;
+
+            // Flow validation rules from operation-flow.cds
+            const allowedTransitions = {
+                'publishTrip': [TripStatus.DRAFT],
+                'assignDriver': [TripStatus.DRAFT, TripStatus.PUBLISHED],
+                'cancelTrip': [TripStatus.ACCEPTED],
+                'reviewTrip': [TripStatus.IN_REVIEW]
+            };
+
+            if (allowedTransitions[action] && !allowedTransitions[action].includes(currentStatus)) {
+                return req.reject(409, `Cannot execute ${action} on trip with status ${currentStatus}`);
+            }
+        });
+
+
         this.on('createTripDraft', async req => {
 
             let { vehicle: vehicleId, driver: driverId, start, end, payout, currency, origin, destination, notes } = req.data;
@@ -37,10 +68,12 @@ export class OperationService extends cds.ApplicationService {
             const trip = await SELECT.one.from(Trips, tripId);
             if (!trip) return req.reject(404, 'Trip not found.');
 
+            const targetStatus = driverId ? TripStatus.IN_REVIEW : TripStatus.PUBLISHED;
+
             if (driverId) {
-                await UPDATE(Trips, tripId).set({ driver_ID: driverId, status: TripStatus.IN_REVIEW });
+                await UPDATE(Trips, tripId).set({ driver_ID: driverId, status: targetStatus });
             } else {
-                await UPDATE(Trips, tripId).set({ status: TripStatus.PUBLISHED });
+                await UPDATE(Trips, tripId).set({ status: targetStatus });
             }
 
             return await SELECT.one.from(Trips, tripId);
@@ -69,6 +102,9 @@ export class OperationService extends cds.ApplicationService {
 
             const trip = await SELECT.one.from(Trips, tripId);
             if (!trip) return req.reject(404, 'Trip not found.');
+
+            await UPDATE(Trips, tripId).set({ status: TripStatus.CANCELLED });
+            return await SELECT.one.from(Trips, tripId);
         })
 
         this.on('reviewTrip', async req => {
@@ -100,6 +136,8 @@ export class OperationService extends cds.ApplicationService {
 
             return SELECT.one.from(VehicleSchedules, scheduleId).where({ Maintenance_ID: maintenanceId });
         })
+
+
 
         // maybe there can be a better way
         this.after('UPDATE', Trips, results => results.forEach(async trip => {
