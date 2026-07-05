@@ -1,0 +1,45 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Trips
+# @name Trips_GET
+GET {{server}}/operation/Trips
+Authorization: Basic {{username}}:{{password}}
+
+
+### Vehicles
+# @name Vehicles_GET
+GET {{server}}/operation/Vehicles
+Authorization: Basic {{username}}:{{password}}
+
+
+### VehicleSchedules
+# @name VehicleSchedules_GET
+GET {{server}}/operation/VehicleSchedules
+Authorization: Basic {{username}}:{{password}}
+
+
+### Maintenances
+# @name Maintenances_GET
+GET {{server}}/operation/Maintenances
+Authorization: Basic {{username}}:{{password}}
+
+
+### Drivers
+# @name Drivers_GET
+GET {{server}}/operation/Drivers
+Authorization: Basic {{username}}:{{password}}
+
+
+### DriverSchedules
+# @name DriverSchedules_GET
+GET {{server}}/operation/DriverSchedules
+Authorization: Basic {{username}}:{{password}}
+
+
+### Currencies
+# @name Currencies_GET
+GET {{server}}/operation/Currencies
+Authorization: Basic {{username}}:{{password}}

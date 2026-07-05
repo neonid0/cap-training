@@ -1,0 +1,9 @@
+@server=http://localhost:4004
+@username=driver
+@password=pass
+
+
+### Trips
+# @name Trips_GET
+GET {{server}}/browse/Trips
+Authorization: Basic {{username}}:{{password}}

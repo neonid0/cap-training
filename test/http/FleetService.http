@@ -1,0 +1,60 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### Vehicles
+# @name Vehicles_GET
+GET {{server}}/fleet/Vehicles
+Authorization: Basic {{username}}:{{password}}
+
+
+### Vehicles
+# @name Vehicles_POST
+POST {{server}}/fleet/Vehicles
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "88846819-2ebe-4aa6-917b-35785a67ff95",
+  "plateNumber": "plateNumber-8884681",
+  "make": "make-8884681",
+  "model": "model-8884681",
+  "class": "T",
+  "year": 9,
+  "status": "O",
+  "location": "location-8884681",
+  "createdAt": "2017-06-27T22:00:00.000Z",
+  "createdBy": "createdBy.5afgp@example.com",
+  "modifiedAt": "2023-05-28T22:00:00.000Z",
+  "modifiedBy": "modifiedBy.5afgp@example.net"
+}
+
+
+### Vehicles
+# @name Vehicles_PATCH
+PATCH {{server}}/fleet/Vehicles/88846819-2ebe-4aa6-917b-35785a67ff95
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "88846819-2ebe-4aa6-917b-35785a67ff95",
+  "plateNumber": "plateNumber-8884681",
+  "make": "make-8884681",
+  "model": "model-8884681",
+  "class": "T",
+  "year": 9,
+  "status": "O",
+  "location": "location-8884681",
+  "createdAt": "2017-06-27T22:00:00.000Z",
+  "createdBy": "createdBy.5afgp@example.com",
+  "modifiedAt": "2023-05-28T22:00:00.000Z",
+  "modifiedBy": "modifiedBy.5afgp@example.net"
+}
+
+
+### Vehicles
+# @name Vehicles_DELETE
+DELETE {{server}}/fleet/Vehicles/88846819-2ebe-4aa6-917b-35785a67ff95
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}

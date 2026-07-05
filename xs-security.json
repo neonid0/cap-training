@@ -1,55 +1,56 @@
 {
-  "scopes": [
-    {
-      "name": "$XSAPPNAME.driver",
-      "description": "driver"
-    },
-    {
-      "name": "$XSAPPNAME.admin",
-      "description": "admin"
-    },
-    {
-      "name": "$XSAPPNAME.processor",
-      "description": "processor"
-    },
-    {
-      "name": "$XSAPPNAME.reviewer",
-      "description": "reviewer"
-    }
-  ],
-  "attributes": [],
-  "role-templates": [
-    {
-      "name": "driver",
-      "description": "generated",
-      "scope-references": [
-        "$XSAPPNAME.driver"
-      ],
-      "attribute-references": []
-    },
-    {
-      "name": "admin",
-      "description": "generated",
-      "scope-references": [
-        "$XSAPPNAME.admin"
-      ],
-      "attribute-references": []
-    },
-    {
-      "name": "processor",
-      "description": "generated",
-      "scope-references": [
-        "$XSAPPNAME.processor"
-      ],
-      "attribute-references": []
-    },
-    {
-      "name": "reviewer",
-      "description": "generated",
-      "scope-references": [
-        "$XSAPPNAME.reviewer"
-      ],
-      "attribute-references": []
-    }
-  ]
+    "xsappname": "logiflow-003eace2trial-dev",
+    "scopes": [
+        {
+            "name": "$XSAPPNAME.driver",
+            "description": "driver"
+        },
+        {
+            "name": "$XSAPPNAME.admin",
+            "description": "admin"
+        },
+        {
+            "name": "$XSAPPNAME.processor",
+            "description": "processor"
+        },
+        {
+            "name": "$XSAPPNAME.reviewer",
+            "description": "reviewer"
+        }
+    ],
+    "attributes": [],
+    "role-templates": [
+        {
+            "name": "driver",
+            "description": "generated",
+            "scope-references": [
+                "$XSAPPNAME.driver"
+            ],
+            "attribute-references": []
+        },
+        {
+            "name": "admin",
+            "description": "generated",
+            "scope-references": [
+                "$XSAPPNAME.admin"
+            ],
+            "attribute-references": []
+        },
+        {
+            "name": "processor",
+            "description": "generated",
+            "scope-references": [
+                "$XSAPPNAME.processor"
+            ],
+            "attribute-references": []
+        },
+        {
+            "name": "reviewer",
+            "description": "generated",
+            "scope-references": [
+                "$XSAPPNAME.reviewer"
+            ],
+            "attribute-references": []
+        }
+    ]
 }
