@@ -1,6 +1,5 @@
 {
     "xsappname": "logiflow-003eace2trial-dev",
-    "tenant-mode": "dedicated",
     "scopes": [
         {
             "name": "$XSAPPNAME.driver",
@@ -60,6 +59,8 @@
             "x509"
         ],
         "redirect-uris": [
+            "http://localhost:5000/**",
+            "http://localhost:5000/login/callback",
             "https://*.cfapps.us10-001.hana.ondemand.com/**",
             "https://*.cfapps.us10-001.hana.ondemand.com/login/callback"
         ]
