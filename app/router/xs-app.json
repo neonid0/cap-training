@@ -1,4 +1,5 @@
 {
+    "welcomeFile": "ui/index-cdn.html",
     "authenticationMethod": "route",
     "logout": {
         "logoutEndpoint": "/logout",
@@ -6,10 +7,11 @@
     },
     "routes": [
         {
-            "source": "^/app/(.*)$",
+            "source": "^/ui/(.*)$",
             "target": "$1",
-            "localDir": ".",
-            "cacheControl": "no-cache, no-store, must-revalidate"
+            "destination": "ui",
+            "cacheControl": "no-cache, no-store, must-revalidate",
+            "authenticationType": "none"
         },
         {
             "source": "^/(.*)$",

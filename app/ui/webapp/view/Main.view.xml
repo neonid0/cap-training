@@ -25,7 +25,7 @@
 				<Button id="btnDoAction" text="Perform Action" press=".onDoAction"/>
         <Button id="btnLogin" text="Login" press=".onLogin" visible="{= !${userModel>/role} || ${userModel>/role} === '' || ${userModel>/role} === 'guest' }" class="sapUiTinyMarginBegin"/>
 
-        <Button id="btnLogout" text="Logout" press=".onLogout" visible="{= ${userModel>/role} === 'admin' || ${userModel>/role} === 'processor' || ${userModel>/role} === 'reviewer' }" class="sapUiTinyMarginBegin"/>
+        <Button id="btnLogout" text="Logout" press=".onLogout" visible="{= ${userModel>/role} }" class="sapUiTinyMarginBegin"/>
 			</Panel>
 
 			<!-- Main illustration and existing content -->
