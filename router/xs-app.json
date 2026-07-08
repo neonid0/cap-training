@@ -1,5 +1,5 @@
 {
-    "welcomeFile": "ui/index-cdn.html",
+    "welcomeFile": "index-cdn.html",
     "authenticationMethod": "route",
     "logout": {
         "logoutEndpoint": "/logout",
@@ -7,14 +7,14 @@
     },
     "routes": [
         {
-            "source": "^/ui/(.*)$",
+            "source": "^/abc/(.*)$",
             "target": "$1",
-            "destination": "ui",
-            "cacheControl": "no-cache, no-store, must-revalidate",
-            "authenticationType": "none"
+            "destination": "abc",
+            "authenticationType": "xsuaa"
         },
         {
             "source": "^/(.*)$",
+            "target": "$1",
             "destination": "srv-api",
             "csrfProtection": true,
             "authenticationType": "xsuaa"

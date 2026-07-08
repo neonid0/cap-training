@@ -5,7 +5,8 @@
     "dependencies": {
         "@cap-js/hana": "^2",
         "@sap/cds": "^9",
-        "@sap/xssec": "^4"
+        "@sap/xssec": "^4",
+        "cds-plugin-ui5": "^0.17.4"
     },
     "devDependencies": {
         "@cap-js/sqlite": "^2.4",

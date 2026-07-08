@@ -1,5 +1,6 @@
 {
     "xsappname": "logiflow-003eace2trial-dev",
+    "tenant-mode": "dedicated",
     "scopes": [
         {
             "name": "$XSAPPNAME.driver",
