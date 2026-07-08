@@ -1,5 +1,5 @@
 {
-    "welcomeFile": "index-cdn.html",
+    "welcomeFile": "abc/index-cdn.html",
     "authenticationMethod": "route",
     "logout": {
         "logoutEndpoint": "/logout",
