@@ -1,7 +1,7 @@
 sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/UIComponent", "sap/ui/core/routing/History"], function (Controller, UIComponent, History) {
 	"use strict";
 
-	return Controller.extend("ui.controller.BaseController", {
+	return Controller.extend("abc.controller.BaseController", {
 		/**
 		 * Convenience method to get the components' router instance.
 		 * @returns {sap.m.routing.Router} The router instance

@@ -1,13 +1,11 @@
 sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "./model/models"], function(UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("ui.Component", {
-
+	return UIComponent.extend("abc.Component", {
 		metadata: {
 			manifest: "json",
 			interfaces: ["sap.ui.core.IAsyncContentCreation"]
 		},
-
 		init: function() {
 			// call the base component's init function
 			UIComponent.prototype.init.call(this); // create the views based on the url/hash
@@ -16,11 +14,9 @@ sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "./model/models"], fu
 			this.setModel(models.createDeviceModel(), "device");
 
 			this._initializeUserModel();
-
 			// create the views based on the url/hash
 			this.getRouter().initialize();
 		},
-
 		_initializeUserModel: async function() {
 
 			const oUserModel = new JSONModel({
@@ -79,9 +75,6 @@ sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "./model/models"], fu
 				}
 			}
 			return this.contentDensityClass;
-		},
-
-
-
+		}
 	});
 });

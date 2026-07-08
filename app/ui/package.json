@@ -1,7 +1,7 @@
 {
-	"name": "ui",
+	"name": "abc",
 	"version": "1.0.0",
-	"description": "UI5 Application: ui",
+	"description": "UI5 Application: abc",
 	"author": "neonid0",
 	"license": "Apache-2.0",
 	"scripts": {

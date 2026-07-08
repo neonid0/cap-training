@@ -2,9 +2,9 @@ sap.ui.define(function () {
 	"use strict";
 
 	return {
-		name: "QUnit test suite for the UI5 Application: ui",
+		name: "QUnit test suite for the UI5 Application: abc",
 		defaults: {
-			page: "ui5://test-resources/ui/Test.qunit.html?testsuite={suite}&test={name}",
+			page: "ui5://test-resources/abc/Test.qunit.html?testsuite={suite}&test={name}",
 			qunit: {
 				version: 2
 			},
@@ -16,21 +16,21 @@ sap.ui.define(function () {
 				theme: "sap_horizon"
 			},
 			coverage: {
-				only: "ui/",
-				never: "test-resources/ui/"
+				only: "abc/",
+				never: "test-resources/abc/"
 			},
 			loader: {
 				paths: {
-					"ui": "../"
+					"abc": "../"
 				}
 			}
 		},
 		tests: {
 			"unit/unitTests": {
-				title: "Unit tests for ui"
+				title: "Unit tests for abc"
 			},
 			"integration/opaTests": {
-				title: "Integration tests for ui"
+				title: "Integration tests for abc"
 			}
 		}
 	};

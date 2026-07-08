@@ -1,12 +1,12 @@
 {
   "generator-ui5-app": {
-    "namespace": "ui",
+    "namespace": "abc",
     "framework": "OpenUI5",
-    "frameworkVersion": "1.149.1",
+    "frameworkVersion": "1.150.0",
     "author": "neonid0",
     "initrepo": false,
-    "appId": "ui",
-    "appURI": "ui",
+    "appId": "abc",
+    "appURI": "abc",
     "cdnDomain": "sdk.openui5.org",
     "defaultTheme": "sap_horizon",
     "qunitCoverageFile": "qunit-coverage-istanbul.js",

@@ -1,34 +1,17 @@
 <mvc:View
-	controllerName="ui.controller.Main"
+	controllerName="abc.controller.Main"
 	displayBlock="true"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
 	core:require="{
-		formatter: 'ui/model/formatter'
+		formatter: 'abc/model/formatter'
 	}">
 
 	<Page
 		title="{i18n>appTitle}"
 		id="page">
 		<content>
-			<!-- Header: show signed user and role (falls back to 'unsigned') -->
-			<HBox justifyContent="SpaceBetween" alignItems="Center" width="100%">
-				<Text id="userName" text="{userModel>/name}" tooltip="{i18n>userTooltip}"/>
-				<Text id="userRole" text="{= ${userModel>/role} ? ${userModel>/role} : 'unsigned' }"/>
-			</HBox>
-
-			<!-- Action buttons to call controller methods and reach tables -->
-			<Panel headerText="Actions" width="100%" class="sapUiSmallMarginTop">
-				<Button id="btnGetDrivers" text="Get Drivers" press=".onGetDrivers"/>
-				<Button id="btnGetVehicles" text="Get Vehicles" press=".onGetVehicles"/>
-				<Button id="btnDoAction" text="Perform Action" press=".onDoAction"/>
-        <Button id="btnLogin" text="Login" press=".onLogin" visible="{= !${userModel>/role} || ${userModel>/role} === '' || ${userModel>/role} === 'guest' }" class="sapUiTinyMarginBegin"/>
-
-        <Button id="btnLogout" text="Logout" press=".onLogout" visible="{= ${userModel>/role} }" class="sapUiTinyMarginBegin"/>
-			</Panel>
-
-			<!-- Main illustration and existing content -->
 			<IllustratedMessage
 				title="{i18n>appTitle}"
 				illustrationType="sapIllus-SuccessHighFive"

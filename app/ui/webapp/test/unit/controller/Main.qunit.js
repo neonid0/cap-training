@@ -1,5 +1,5 @@
 /* global QUnit */
-sap.ui.define(["ui/controller/Main.controller"], function (MainController) {
+sap.ui.define(["abc/controller/Main.controller"], function (MainController) {
 	"use strict";
 
 	QUnit.module("Sample Main controller test");

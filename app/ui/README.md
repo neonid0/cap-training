@@ -1,4 +1,4 @@
-# UI5 Application ui
+# UI5 Application abc
 
 Insert the purpose of this project and some interesting info here...
 

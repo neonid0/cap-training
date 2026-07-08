@@ -61,9 +61,8 @@
         ],
         "redirect-uris": [
             "http://localhost:5000/**",
-            "http://localhost:5000/login/callback",
-            "https://*.cfapps.us10-001.hana.ondemand.com/**",
-            "https://*.cfapps.us10-001.hana.ondemand.com/login/callback"
+            "https://localhost:5000/**",
+            "https://*.cfapps.us10-001.hana.ondemand.com/**"
         ]
     }
 }
